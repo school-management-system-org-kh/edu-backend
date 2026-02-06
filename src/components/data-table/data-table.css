@@ -1,0 +1,9 @@
+.flashing-row {
+    animation: blinker 2s 5 forwards;
+}
+
+@keyframes blinker {
+    from { background-color: white; }
+    50% { background-color: lightcyan; }
+    to { background-color: white; }
+}

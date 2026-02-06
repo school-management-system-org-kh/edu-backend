@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.ant-modal-footer{
+  text-align: center !important;
+}
+
+@font-face {
+  font-family: 'Khmer OS Battambang';
+  src: url('./assets/fonts/KhmerOS_battambang.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 
+    -apple-system, /* macOS/iOS system font */
+    BlinkMacSystemFont, /* Chrome macOS */
+    'Segoe UI', /* Windows */
+    'Roboto', /* Android */
+    'Oxygen', /* KDE */
+    'Ubuntu', /* Ubuntu */
+    'Cantarell', /* GNOME */
+    'Fira Sans', /* Firefox OS */
+    'Droid Sans', /* Older Android */
+    'Helvetica Neue', 
+    'Khmer OS Battambang', /* Khmer fallback */
+    sans-serif;
+}
+
+label {
+  font-family: 'Khmer OS Battambang', sans-serif;
+  font-weight: 500;
+}

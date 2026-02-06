@@ -1,0 +1,433 @@
+{
+  "schoolSystem": {
+    "dashboard": {
+      "title": "Dashboard",
+      "icon": "DashboardOutlined",
+      "url":"/dashboard",
+      "id": 1
+    },
+    "frontOffice": {
+      "title": "Front Office",
+      "icon": "FaIoxhost",
+      "id": 2,
+      "items": [
+        { "id": 1, "name": "Admission Enquiry", "url": "/front-office/admission-enquiry" },
+        { "id": 2, "name": "Visitor Book", "url": "/front-office/visitor-book" },
+        { "id": 3, "name": "Phone Call Log", "url": "/front-office/phone-call-log" },
+        { "id": 4, "name": "Postal Dispatch", "url": "/front-office/postal-dispatch" },
+        { "id": 5, "name": "Postal Receive", "url": "/front-office/postal-receive" },
+        { "id": 6, "name": "Complain", "url": "/front-office/complain" },
+        { "id": 7, "name": "Setup Front Office", "url": "/front-office/setup" }
+      ]
+    },
+    "studentInformation": {
+      "title": "Student Information",
+      "icon": "FaUserPlus",
+      "id": 3,
+      "items": [
+        { "id": 1, "name": "Student Details", "url": "/students/details" },
+        { "id": 2, "name": "Student Admission", "url": "/students/admission" },
+        { "id": 3, "name": "Online Admission", "url": "/students/online-admission" },
+        { "id": 4, "name": "Disabled Students", "url": "/students/disabled" },
+        { "id": 5, "name": "Multi Class Student", "url": "/students/multi-class" },
+        { "id": 6, "name": "Bulk Delete", "url": "/students/bulk-delete" },
+        { "id": 7, "name": "Student Categories", "url": "/students/categories" },
+        { "id": 8, "name": "Student House", "url": "/students/house" },
+        { "id": 9, "name": "Disable Reason", "url": "/students/disable-reason" }
+      ]
+    },
+    "feesCollection": {
+      "title": "Fees Collection",
+      "icon": "FaMoneyBillAlt",
+      "id": 4, 
+      "items": [
+        { "id": 1, "name": "Collect Fees", "url": "/fees/collect" },
+        { "id": 2, "name": "Offline Bank Payments", "url": "/fees/offline-bank-payments" },
+        { "id": 3, "name": "Search Fees Payment", "url": "/fees/search-payment" },
+        { "id": 4, "name": "Search Due Fees", "url": "/fees/search-due" },
+        { "id": 5, "name": "Fees Master", "url": "/fees/master" },
+        { "id": 6, "name": "Quick Fees", "url": "/fees/quick" },
+        { "id": 7, "name": "Fees Group", "url": "/fees/group" },
+        { "id": 8, "name": "Fees Type", "url": "/fees/type" },
+        { "id": 9, "name": "Fees Discount", "url": "/fees/discount" },
+        { "id": 10, "name": "Fees Carry Forward", "url": "/fees/carry-forward" },
+        { "id": 11, "name": "Fees Reminder", "url": "/fees/reminder" }
+      ]
+    },
+    "onlineCourse": {
+      "title": "Online Course",
+      "icon": "FaFileVideo",
+      "id": 5,
+      "items": [
+        { "id": 1, "name": "Online Course", "url": "/online-course/manage" },
+        { "id": 2, "name": "Offline Payment", "url": "/online-course/offline-payment" },
+        { "id": 3, "name": "Course Category", "url": "/online-course/course-category" },
+        { "id": 4, "name": "Question Bank", "url": "/online-course/question-bank" },
+        { "id": 5, "name": "Online Course Report", "url": "/online-course/report" },
+        { "id": 6, "name": "Setting", "url": "/online-course/setting" }
+      ]
+    },
+    "multiBranch": {
+      "title": "Multi Branch",
+      "icon": "FaSitemap",
+      "id": 6,
+      "items": [
+        { "id": 1, "name": "Overview", "url": "/multi-branch/overview" },
+        { "id": 2, "name": "Report", "url": "/multi-branch/report" },
+        { "id": 3, "name": "Setting", "url": "/multi-branch/setting" }
+      ]
+    },
+    "gmeetLiveClasses": {
+      "title": "Gmeet Live Classes",
+      "icon": "HiMiniVideoCamera",
+      "id": 7,
+      "items": [
+        { "id": 1, "name": "Live Classes", "url": "/gmeet/live-classes" },
+        { "id": 2, "name": "Live Meeting", "url": "/gmeet/live-meeting" },
+        { "id": 3, "name": "Live Class Report", "url": "/gmeet/class-report" },
+        { "id": 4, "name": "Live Meeting Report", "url": "/gmeet/meeting-report" },
+        { "id": 5, "name": "Setting", "url": "/gmeet/setting" }
+      ]
+    },
+    "zoomClasses": {
+      "title": "Zoom Live Classes",
+      "icon": "HiMiniVideoCamera",
+      "id": 8,
+      "items": [
+        { "id": 1, "name": "Live Meeting", "url": "/zoom/live-meeting" },
+        { "id": 2, "name": "Live Classes", "url": "/zoom/live-classes" },
+        { "id": 3, "name": "Live Class Report", "url": "/zoom/class-report" },
+        { "id": 4, "name": "Live Meeting Report", "url": "/zoom/meeting-report" },
+        { "id": 5, "name": "Setting", "url": "/zoom/setting" }
+      ]
+    },
+    "behaviourRecords": {
+      "title": "Behaviour Records",
+      "icon": "FaMapSigns",
+      "id": 9,
+      "items": [
+        { "id": 1, "name": "Assign Incident", "url": "/behaviour/assign-incident" },
+        { "id": 2, "name": "Incidents", "url": "/behaviour/incidents" },
+        { "id": 3, "name": "Reports", "url": "/behaviour/reports" },
+        { "id": 4, "name": "Setting", "url": "/behaviour/setting" }
+      ]
+    },
+    "income": {
+      "title": "Income",
+      "icon": "IoLogoUsd",
+      "id": 10,
+      "items": [
+        { "id": 1, "name": "Add Income", "url": "/income/add" },
+        { "id": 2, "name": "Search Income", "url": "/income/search" },
+        { "id": 3, "name": "Income Head", "url": "/income/head" }
+      ]
+    },
+    "expenses": {
+      "title": "Expenses",
+      "icon": "FaCreditCard",
+      "id": 11,
+      "items": [
+        { "id": 1, "name": "Add Expense", "url": "/expenses/add" },
+        { "id": 2, "name": "Search Expense", "url": "/expenses/search" },
+        { "id": 3, "name": "Expense Head", "url": "/expenses/head" }
+      ]
+    },
+    "cbseExamination": {
+      "title": "CBSE Examination",
+      "icon": "FiFileText",
+      "id": 12,
+      "items": [
+        { "id": 1, "name": "Exam", "url": "/cbse/exam" },
+        { "id": 2, "name": "Exam Schedule", "url": "/cbse/schedule" },
+        { "id": 3, "name": "Print Marksheet", "url": "/cbse/print-marksheet" },
+        { "id": 4, "name": "Exam Grade", "url": "/cbse/grade" },
+        { "id": 5, "name": "Assign Observation", "url": "/cbse/assign-observation" },
+        { "id": 6, "name": "Observation", "url": "/cbse/observation" },
+        { "id": 7, "name": "Observation Parameter", "url": "/cbse/observation-parameter" },
+        { "id": 8, "name": "Assessment", "url": "/cbse/assessment" },
+        { "id": 9, "name": "Term", "url": "/cbse/term" },
+        { "id": 10, "name": "Template", "url": "/cbse/template" },
+        { "id": 11, "name": "Reports", "url": "/cbse/reports" },
+        { "id": 12, "name": "Setting", "url": "/cbse/setting" }
+      ]
+    },
+    "examinations": {
+      "title": "Examinations",
+      "icon": "FaMap",
+      "id": 13,
+      "items": [
+        { "id": 1, "name": "Exam Group", "url": "/exam/group" },
+        { "id": 2, "name": "Exam Schedule", "url": "/exam/schedule" },
+        { "id": 3, "name": "Exam Result", "url": "/exam/result" },
+        { "id": 4, "name": "Design Admit Card", "url": "/exam/design-admit" },
+        { "id": 5, "name": "Print Admit Card", "url": "/exam/print-admit" },
+        { "id": 6, "name": "Design Marksheet", "url": "/exam/design-marksheet" },
+        { "id": 7, "name": "Print Marksheet", "url": "/exam/print-marksheet" },
+        { "id": 8, "name": "Marks Grade", "url": "/exam/marks-grade" },
+        { "id": 9, "name": "Marks Division", "url": "/exam/marks-division" }
+      ]
+    },
+    "attendance": {
+      "title": "Attendance",
+      "icon": "FaCalendarCheck",
+      "id": 14,
+      "items": [
+        { "id": 1, "name": "Student Attendance", "url": "/attendance/student" },
+        { "id": 2, "name": "Approve Leave", "url": "/attendance/approve-leave" },
+        { "id": 3, "name": "Attendance By Date", "url": "/attendance/by-date" }
+      ]
+    },
+    "qrCodeAttendance": {
+      "title": "QR Code Attendance",
+      "icon": "LiaQrcodeSolid",
+      "id": 15,
+      "items": [
+        { "id": 1, "name": "Attendance", "url": "/qr-attendance/manage" },
+        { "id": 2, "name": "Setting", "url": "/qr-attendance/setting" }
+      ]
+    },
+    "onlineExaminations": {
+      "title": "Online Examinations",
+      "icon": "FaRss",
+      "id": 16,
+      "items": [
+        { "id": 1, "name": "Online Exam", "url": "/online-exam/manage" },
+        { "id": 2, "name": "Question Bank", "url": "/online-exam/question-bank" }
+      ]
+    },
+    "academics": {
+      "title": "Academics",
+      "icon": "BsMortarboardFill",
+      "id": 17,
+      "items": [
+        { "id": 1, "name": "Class Timetable", "url": "/academics/timetable" },
+        { "id": 2, "name": "Teachers Timetable", "url": "/academics/teachers-timetable" },
+        { "id": 3, "name": "Assign Class Teacher", "url": "/academics/assign-teacher" },
+        { "id": 4, "name": "Promote Students", "url": "/academics/promote-students" },
+        { "id": 5, "name": "Subject Group", "url": "/academics/subject-group" },
+        { "id": 6, "name": "Subjects", "url": "/academics/subjects" },
+        { "id": 7, "name": "Class", "url": "/academics/class" },
+        { "id": 8, "name": "Sections", "url": "/academics/sections" }
+      ]
+    },
+    "annualCalendar": {
+      "title": "Annual Calendar",
+      "icon": "FaRegCalendarAlt",
+      "id": 18,
+      "items": [
+        { "id": 1, "name": "Annual Calendar", "url": "/calendar/annual" },
+        { "id": 2, "name": "Holiday Type", "url": "/calendar/holiday-type" }
+      ]
+    },
+    "lessonPlan": {
+      "title": "Lesson Plan",
+      "icon": "FaListAlt",
+      "id": 19,
+      "items": [
+        { "id": 1, "name": "Copy Old Lessons", "url": "/lesson-plan/copy-lessons" },
+        { "id": 2, "name": "Manage Lesson Plan", "url": "/lesson-plan/manage" },
+        { "id": 3, "name": "Manage Syllabus Status", "url": "/lesson-plan/syllabus-status" },
+        { "id": 4, "name": "Lesson", "url": "/lesson-plan/lesson" },
+        { "id": 5, "name": "Topic", "url": "/lesson-plan/topic" }
+      ]
+    },
+    "humanResource": {
+      "title": "Human Resource",
+      "icon": "FaSitemap",
+      "id": 20,
+      "items": [
+        { "id": 1, "name": "Staff Directory", "url": "/hr/staff-directory" },
+        { "id": 2, "name": "Staff Attendance", "url": "/hr/staff-attendance" },
+        { "id": 3, "name": "Payroll", "url": "/hr/payroll" },
+        { "id": 4, "name": "Approve Leave Request", "url": "/hr/approve-leave" },
+        { "id": 5, "name": "Apply Leave", "url": "/hr/apply-leave" },
+        { "id": 6, "name": "Leave Type", "url": "/hr/leave-type" },
+        { "id": 7, "name": "Teachers Rating", "url": "/hr/teachers-rating" },
+        { "id": 8, "name": "Department", "url": "/hr/department" },
+        { "id": 9, "name": "Designation", "url": "/hr/designation" },
+        { "id": 10, "name": "Disabled Staff", "url": "/hr/disabled-staff" }
+      ]
+    },
+    "communicate": {
+      "title": "Communicate",
+      "icon": "FaBullhorn",
+      "id": 21,
+      "items": [
+        { "id": 1, "name": "Notice Board", "url": "/communicate/notice-board" },
+        { "id": 2, "name": "Send Email", "url": "/communicate/send-email" },
+        { "id": 3, "name": "Send SMS", "url": "/communicate/send-sms" },
+        { "id": 4, "name": "Email / SMS Log", "url": "/communicate/email-sms-log" },
+        { "id": 5, "name": "Schedule Email SMS Log", "url": "/communicate/schedule-log" },
+        { "id": 6, "name": "Login Credentials Send", "url": "/communicate/login-credentials" },
+        { "id": 7, "name": "Email Template", "url": "/communicate/email-template" },
+        { "id": 8, "name": "SMS Template", "url": "/communicate/sms-template" }
+      ]
+    },
+    "downloadCenter": {
+      "title": "Download Center",
+      "icon": "FaDownload",
+      "id": 22,
+      "items": [
+        { "id": 1, "name": "Content Type", "url": "/download/content-type" },
+        { "id": 2, "name": "Content Share List", "url": "/download/content-share" },
+        { "id": 3, "name": "Upload/Share Content", "url": "/download/upload-content" },
+        { "id": 4, "name": "Video Tutorial", "url": "/download/video-tutorial" }
+      ]
+    },
+    "homework": {
+      "title": "Homework",
+      "icon": "FaFlask",
+      "id": 23,
+      "items": [
+        { "id": 1, "name": "Add Homework", "url": "/homework/add" },
+        { "id": 2, "name": "Daily Assignment", "url": "/homework/daily-assignment" }
+      ]
+    },
+    "library": {
+      "title": "Library",
+      "icon": "FaBook",
+      "id": 24,
+      "items": [
+        { "id": 1, "name": "Book List", "url": "/library/book-list" },
+        { "id": 2, "name": "Issue - Return", "url": "/library/issue-return" },
+        { "id": 3, "name": "Add Student", "url": "/library/add-student" },
+        { "id": 4, "name": "Add Staff Member", "url": "/library/add-staff" }
+      ]
+    },
+    "inventory": {
+      "title": "Inventory",
+      "icon": "FaObjectGroup",
+      "id": 25,
+      "items": [
+        { "id": 1, "name": "Issue Item", "url": "/inventory/issue-item" },
+        { "id": 2, "name": "Add Item Stock", "url": "/inventory/add-stock" },
+        { "id": 3, "name": "Add Item", "url": "/inventory/add-item" },
+        { "id": 4, "name": "Item Category", "url": "/inventory/item-category" },
+        { "id": 5, "name": "Item Store", "url": "/inventory/item-store" },
+        { "id": 6, "name": "Item Supplier", "url": "/inventory/item-supplier" }
+      ]
+    },
+    "studentCV": {
+    "title": "Student CV",
+    "icon": "FaIoxhost",
+    "id": 26,
+      "items": [
+        { "id": 1, "name": "Build CV", "url": "/student-cv/build" },
+        { "id": 2, "name": "Download CV", "url": "/student-cv/download" }
+      ]
+    },
+    "transport": {
+      "title": "Transport",
+      "icon": "FaBus",
+      "id": 27,
+      "items": [
+        { "id": 1, "name": "Fees Master", "url": "/transport/fees-master" },
+        { "id": 2, "name": "Pickup Point", "url": "/transport/pickup-point" },
+        { "id": 3, "name": "Routes", "url": "/transport/routes" },
+        { "id": 4, "name": "Vehicles", "url": "/transport/vehicles" },
+        { "id": 5, "name": "Assign Vehicle", "url": "/transport/assign-vehicle" },
+        { "id": 6, "name": "Route Pickup Point", "url": "/transport/route-pickup" },
+        { "id": 7, "name": "Student Transport Fees", "url": "/transport/student-fees" }
+      ]
+    },
+    "hostel": {
+      "title": "Hostel",
+      "icon": "FaBuilding",
+      "id": 28,
+      "items": [
+        { "id": 1, "name": "Hostel Rooms", "url": "/hostel/rooms" },
+        { "id": 2, "name": "Room Type", "url": "/hostel/room-type" },
+        { "id": 3, "name": "Hostel", "url": "/hostel/manage" }
+      ]
+    },
+    "certificate": {
+      "title": "Certificate",
+      "icon": "FaRegNewspaper",
+      "id": 29,
+      "items": [
+        { "id": 1, "name": "Student Certificate", "url": "/certificate/student" },
+        { "id": 2, "name": "Generate Certificate", "url": "/certificate/generate" },
+        { "id": 3, "name": "Student ID Card", "url": "/certificate/student-id" },
+        { "id": 4, "name": "Generate ID Card", "url": "/certificate/generate-id" },
+        { "id": 5, "name": "Staff ID Card", "url": "/certificate/staff-id" },
+        { "id": 6, "name": "Generate Staff ID Card", "url": "/certificate/generate-staff-id" }
+      ]
+    },
+    "frontCMS": {
+      "title": "Front CMS",
+      "icon": "FaEmpire",
+      "id": 30,
+      "items": [
+        { "id": 1, "name": "Event", "url": "/cms/event" },
+        { "id": 2, "name": "Gallery", "url": "/cms/gallery" },
+        { "id": 3, "name": "News", "url": "/cms/news" },
+        { "id": 4, "name": "Media Manager", "url": "/cms/media" },
+        { "id": 5, "name": "Pages", "url": "/cms/pages" },
+        { "id": 6, "name": "Menus", "url": "/cms/menus" },
+        { "id": 7, "name": "Banner Images", "url": "/cms/banners" }
+      ]
+    },
+    "alumni": {
+      "title": "Alumni",
+      "icon": "FaUniversalAccess",
+      "id": 31,
+      "items": [
+        { "id": 1, "name": "Manage Alumni", "url": "/alumni/manage" },
+        { "id": 2, "name": "Events", "url": "/alumni/events" }
+      ]
+    },
+    "reports": {
+      "title": "Reports",
+      "icon": "RiLineChartFill",
+      "id": 32,
+      "items": [
+        { "id": 1, "name": "Student Information", "url": "/reports/student-information" },
+        { "id": 2, "name": "Finance", "url": "/reports/finance" },
+        { "id": 3, "name": "Attendance", "url": "/reports/attendance" },
+        { "id": 4, "name": "Examinations", "url": "/reports/examinations" },
+        { "id": 5, "name": "Online Examinations", "url": "/reports/online-examinations" },
+        { "id": 6, "name": "Lesson Plan", "url": "/reports/lesson-plan" },
+        { "id": 7, "name": "Human Resource", "url": "/reports/human-resource" },
+        { "id": 8, "name": "Homework", "url": "/reports/homework" },
+        { "id": 9, "name": "Library", "url": "/reports/library" },
+        { "id": 10, "name": "Inventory", "url": "/reports/inventory" },
+        { "id": 11, "name": "Transport", "url": "/reports/transport" },
+        { "id": 12, "name": "Hostel", "url": "/reports/hostel" },
+        { "id": 13, "name": "Alumni", "url": "/reports/alumni" },
+        { "id": 14, "name": "User Log", "url": "/reports/user-log" },
+        { "id": 15, "name": "Audit Trail Report", "url": "/reports/audit-trail" }
+      ]
+    },
+    "systemSettings": {
+      "title": "System Settings",
+      "icon": "FaGears",
+      "id": 33,
+      "items": [
+        { "id": 1, "name": "General Setting", "url": "/settings/general" },
+        { "id": 2, "name": "Session Setting", "url": "/settings/session" },
+        { "id": 3, "name": "Notification Setting", "url": "/settings/notification" },
+        { "id": 4, "name": "SMS Setting", "url": "/settings/sms" },
+        { "id": 5, "name": "Email Setting", "url": "/settings/email" },
+        { "id": 6, "name": "Payment Methods", "url": "/settings/payment-methods" },
+        { "id": 7, "name": "Thermal Print", "url": "/settings/thermal-print" },
+        { "id": 8, "name": "Print Header Footer", "url": "/settings/print-header-footer" },
+        { "id": 9, "name": "Front CMS Setting", "url": "/settings/front-cms" },
+        { "id": 10, "name": "Roles Permissions", "url": "/settings/roles-permissions" },
+        { "id": 11, "name": "Backup Restore", "url": "/settings/backup-restore" },
+        { "id": 12, "name": "Languages", "url": "/settings/languages" },
+        { "id": 13, "name": "Currency", "url": "/settings/currency" },
+        { "id": 14, "name": "Users", "url": "/settings/users" },
+        { "id": 15, "name": "Addons", "url": "/settings/addons" },
+        { "id": 16, "name": "Modules", "url": "/settings/modules" },
+        { "id": 17, "name": "Custom Fields", "url": "/settings/custom-fields" },
+        { "id": 18, "name": "Captcha Setting", "url": "/settings/captcha" },
+        { "id": 19, "name": "System Fields", "url": "/settings/system-fields" },
+        { "id": 20, "name": "Student Profile Update", "url": "/settings/student-profile" },
+        { "id": 21, "name": "Online Admission", "url": "/settings/online-admission" },
+        { "id": 22, "name": "File Types", "url": "/settings/file-types" },
+        { "id": 23, "name": "Sidebar Menu", "url": "/settings/sidebar-menu" },
+        { "id": 24, "name": "System Update", "url": "/settings/system-update" }
+      ]
+    }
+  }
+}

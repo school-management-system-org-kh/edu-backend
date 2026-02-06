@@ -1,0 +1,16 @@
+import * as React from 'react';
+
+function SvgContentArrow(props) {
+	const { width } = props
+	return (
+		<svg width={width ? width : "1.25rem"} height="1rem" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ height: width, width: width }}>
+			<path fillRule="evenodd" clipRule="evenodd" d="M0.525879 8C0.525879 7.3452 1.09449 6.81438 1.79592 6.81438H18.7298C19.4312 6.81438 19.9998 7.3452 19.9998 8C19.9998 8.6548 19.4312 9.18562 18.7298 9.18562H1.79592C1.09449 9.18562 0.525879 8.6548 0.525879 8Z" fill="#152C5B" />
+			<path fillRule="evenodd" clipRule="evenodd" d="M0.898053 8.83836C0.402072 8.37535 0.402072 7.62465 0.898053 7.16164L7.67159 0.838357C8.16758 0.375345 8.97172 0.375345 9.4677 0.838357C9.96368 1.30137 9.96368 2.05206 9.4677 2.51507L2.69416 8.83836C2.19818 9.30137 1.39403 9.30137 0.898053 8.83836Z" fill="#152C5B" />
+			<path fillRule="evenodd" clipRule="evenodd" d="M0.897845 7.16165C1.39383 6.69863 2.19797 6.69863 2.69395 7.16165L9.46749 13.4849C9.96347 13.9479 9.96347 14.6986 9.46749 15.1616C8.97151 15.6247 8.16737 15.6247 7.67139 15.1616L0.897845 8.83836C0.401864 8.37535 0.401864 7.62466 0.897845 7.16165Z" fill="#152C5B" />
+		</svg>
+
+
+	);
+}
+
+export default SvgContentArrow;
