@@ -144,7 +144,7 @@ const SubjectGroupList = ({ loading, data, tableParams, setTableParams, getListS
     const handleDelete = async (item) => {
         messageModalRef.current.showWarningConfirm(t('Are you sure you want to delete this section ?'), async () => {
             setLoading(true)
-            await deleteDataRequest(`${SUBJECTGROUP_URL}/${item?.id}`).then((res) => {
+            await deleteDataRequest(`${SUBJECTGROUP_URL}/${item?._id}`).then((res) => {
                 messageModalRef.current.showSuccessConfirmsAutoClose(res && res.message, () => { }, "", true);
                 getListSubjectGroup();
                 setLoading(false)
@@ -182,8 +182,8 @@ const SubjectGroupList = ({ loading, data, tableParams, setTableParams, getListS
                 key: "classSelect",
                 render: (_, record) => {
                     const items = [];
-                    record?.Classes?.forEach((cls) => {
-                        record?.Sections?.forEach((sec) => {
+                    record?.classes?.forEach((cls) => {
+                        record?.sections?.forEach((sec) => {
                             items.push(`${cls.name} (${sec.name})`);
                         });
                     });
@@ -198,9 +198,9 @@ const SubjectGroupList = ({ loading, data, tableParams, setTableParams, getListS
                 sorter: (a, b) => {
                     // flatten all class-section pairs into strings for sorting
                     const aPairs = [];
-                    a?.Classes?.forEach(cls => a?.Sections?.forEach(sec => aPairs.push(`${cls.name}(${sec.name})`)));
+                    a?.classes?.forEach(cls => a?.sections?.forEach(sec => aPairs.push(`${cls.name}(${sec.name})`)));
                     const bPairs = [];
-                    b?.Classes?.forEach(cls => b?.Sections?.forEach(sec => bPairs.push(`${cls.name}(${sec.name})`)));
+                    b?.classes?.forEach(cls => b?.sections?.forEach(sec => bPairs.push(`${cls.name}(${sec.name})`)));
 
                     return aPairs.join(",").localeCompare(bPairs.join(","));
                 },
@@ -213,15 +213,15 @@ const SubjectGroupList = ({ loading, data, tableParams, setTableParams, getListS
                 key: "subject",
                 render: (_, record) => (
                     <div>
-                        {record?.Subjects?.map((s, i) => (
+                        {record?.subjects?.map((s, i) => (
                             <div key={i}>{s.name}</div> // each subject on a new line
                         ))}
                     </div>
                 ),
                 sorter: (a, b) => {
                     // flatten subjects into a single string for sorting
-                    const aSubjects = a?.Subjects?.map(s => s.name).join(" ");
-                    const bSubjects = b?.Subjects?.map(s => s.name).join(" ");
+                    const aSubjects = a?.subjects?.map(s => s.name).join(" ");
+                    const bSubjects = b?.subjects?.map(s => s.name).join(" ");
                     return aSubjects.localeCompare(bSubjects);
                 },
                 sortDirections: ["ascend", "descend"],
@@ -236,7 +236,7 @@ const SubjectGroupList = ({ loading, data, tableParams, setTableParams, getListS
                         <FaRegEdit
                             style={{ fontSize: "1.2rem", color: "#1677ff", cursor: "pointer", marginTop: "0.4rem", marginLeft: "0.5rem" }}
                             onClick={() => {
-                                setId(record && record?.id)
+                                setId(record && record?._id)
                             }}
                         />
                         <DeleteOutlined

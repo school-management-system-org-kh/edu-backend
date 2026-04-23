@@ -38,11 +38,11 @@ const AddSubjectGroup = ({ getListSubjectGroup, id, setId, setLoading }) => {
 
     const addNewValue = (data) => {
         const sections = data?.data?.Sections || [];
-        const sectionIds = sections.map(s => s.id);
+        const sectionIds = sections.map(s => s._id);
         const classes = data?.data?.Classes || [];
-        const classIds = classes.map(c => c.id);
+        const classIds = classes.map(c => c._id);
         const subjects = data?.data?.Subjects || [];
-        const subjectIds = subjects.map(su => su.id);
+        const subjectIds = subjects.map(su => su._id);
 
 
         setDataObject({
@@ -265,7 +265,7 @@ const AddSubjectGroup = ({ getListSubjectGroup, id, setId, setLoading }) => {
                         form.setFieldValue("classIds", value);
                     }}
                     options={optionClass?.map(s => ({
-                        value: s.id,      // this is stored in value (for payload)
+                        value: s._id,      // this is stored in value (for payload)
                         label: s.name     // this is displayed in dropdown
                     }))}
                 />
@@ -287,7 +287,7 @@ const AddSubjectGroup = ({ getListSubjectGroup, id, setId, setLoading }) => {
                         form.setFieldValue("sectionIds", value);
                     }}
                     options={options?.map(s => ({
-                        value: s.id,      // this is stored in value (for payload)
+                        value: s._id,      // this is stored in value (for payload)
                         label: s.name     // this is displayed in dropdown
                     }))}
                 />
@@ -309,7 +309,7 @@ const AddSubjectGroup = ({ getListSubjectGroup, id, setId, setLoading }) => {
                         form.setFieldValue("subjectIds", value);
                     }}
                     options={optionSubject?.map(s => ({
-                        value: s.id,      // this is stored in value (for payload)
+                        value: s._id,      // this is stored in value (for payload)
                         label: s.name     // this is displayed in dropdown
                     }))}
                 />

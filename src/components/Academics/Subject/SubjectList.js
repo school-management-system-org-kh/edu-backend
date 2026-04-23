@@ -103,7 +103,7 @@ const SubjectList = ({ loading, data, tableParams, setTableParams, getListSubjec
     const handleDelete = async (item) => {
         messageModalRef.current.showWarningConfirm(t('Are you sure you want to delete this subject ?'), async () => {
             setLoading(true)
-            await deleteDataRequest(`${SUBJECT_URL}/${item?.id}`).then((res) => {
+            await deleteDataRequest(`${SUBJECT_URL}/${item?._id}`).then((res) => {
                 messageModalRef.current.showSuccessConfirmsAutoClose(res && res.message, () => { }, "", true);
                 getListSubject();
                 setLoading(false)
@@ -161,7 +161,7 @@ const SubjectList = ({ loading, data, tableParams, setTableParams, getListSubjec
                     <FaRegEdit
                         style={{ fontSize: "1.2rem", color: "#1677ff", cursor: "pointer", marginTop: "0.4rem", marginLeft: "0.5rem" }}
                         onClick={() => {
-                            setId(record && record?.id)
+                            setId(record && record?._id)
                         }}
                     />
                     <DeleteOutlined

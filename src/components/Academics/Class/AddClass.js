@@ -29,8 +29,9 @@ const AddClass = ({ getListClass, id, setId, setLoading }) => {
     }
 
     const addNewValue = (data) => {
-        const sections = data?.data?.Sections || [];
-        const sectionIds = sections.map(s => s.id);
+        console.log("sksks", data)
+        const sections = data?.data?.sections || [];
+        const sectionIds = sections.map(s => s._id);
 
         setDataObject({
             name: data?.data?.name || "",
@@ -214,7 +215,7 @@ const AddClass = ({ getListClass, id, setId, setLoading }) => {
                         form.setFieldValue("sectionIds", value);
                     }}
                     options={options?.map(s => ({
-                        value: s.id,      // this is stored in value (for payload)
+                        value: s._id,      // this is stored in value (for payload)
                         label: s.name     // this is displayed in dropdown
                     }))}
                 />

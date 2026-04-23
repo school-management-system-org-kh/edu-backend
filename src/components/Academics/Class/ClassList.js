@@ -28,7 +28,7 @@ const ClassList = ({ loading, data, tableParams, setTableParams, getListClass, s
 
                 // ⭐ Fix Section column
                 if (key === "section" || key === "Sections") {
-                    cell = (row.Sections || []).map(s => s.name).join(", ");
+                    cell = (row.sections || []).map(s => s.name).join(", ");
                 } else {
                     cell = newRow[key];
                 }
@@ -65,7 +65,7 @@ const ClassList = ({ loading, data, tableParams, setTableParams, getListClass, s
         // Extract headers (skip non-dataIndex columns)
         const tableColumn = columns
             .filter((col) => col.dataIndex)
-            .map((col) => col.title);
+            .map((col) => col.title.props.children);
 
         const tableRows = data.map((row) =>
             columns
@@ -75,7 +75,7 @@ const ClassList = ({ loading, data, tableParams, setTableParams, getListClass, s
 
                     // ⭐ Special case: Section column
                     if (col.dataIndex === "section") {
-                        cell = (row.Sections || [])
+                        cell = (row.sections || [])
                             .map((s) => s.name)
                             .join(", ");
                     } else {
@@ -109,12 +109,14 @@ const ClassList = ({ loading, data, tableParams, setTableParams, getListClass, s
     };
 
     const printTable = (columns, data) => {
+        console.log("Printing with columns:", columns);
+        console.log("Printing with data:", data);
         // Extract headers (skip action column)
         const headers = columns
             .filter((col) => col.dataIndex)
             .map(
                 (col) =>
-                    `<th style="border:1px solid #ddd; padding:8px; background:#4F81BD; color:white;">${col.title}</th>`
+                    `<th style="border:1px solid #ddd; padding:8px; background:#4F81BD; color:white;">${col.title.props.children}</th>`
             )
             .join("");
 
@@ -128,9 +130,9 @@ const ClassList = ({ loading, data, tableParams, setTableParams, getListClass, s
                         .map((col) => {
                             let cell;
 
-                            // ⭐ Special case for Section column (your real data is row.Sections)
+                            // ⭐ Special case for Section column (your real data is row.sections)
                             if (col.dataIndex === "section") {
-                                cell = (row.Sections || [])
+                                cell = (row.sections || [])
                                     .map((s) => s.name)
                                     .join(", ");
                             } else {
@@ -192,7 +194,7 @@ const ClassList = ({ loading, data, tableParams, setTableParams, getListClass, s
     const handleDelete = async (item) => {
         messageModalRef.current.showWarningConfirm(t('Are you sure you want to delete this class ?'), async () => {
             setLoading(true)
-            await deleteDataRequest(`${CLASS_URL}/${item?.id}`).then((res) => {
+            await deleteDataRequest(`${CLASS_URL}/${item?._id}`).then((res) => {
                 messageModalRef.current.showSuccessConfirmsAutoClose(res && res.message, () => { }, "", true);
                 getListClass();
                 setLoading(false)
@@ -227,9 +229,9 @@ const ClassList = ({ loading, data, tableParams, setTableParams, getListClass, s
                 title: <span style={{fontWeight:600}}>Section</span>,
                 dataIndex: "section",
                 key: "section",
-                render: (_, record) => record?.Sections.map((s) => s?.name).join(", "),
+                render: (_, record) => (record.sections || []).map(s => s.name).join(", "),
                 sorter: (a, b) =>
-                    a.Sections.map((s) => s?.name).join(", ").localeCompare(b.Sections.map((s) => s?.name).join(", ")),
+                    a.sections.map((s) => s?.name).join(", ").localeCompare(b.sections.map((s) => s?.name).join(", ")),
                 sortDirections: ["ascend", "descend"],
                 showSorterTooltip: false,
             },
@@ -242,7 +244,7 @@ const ClassList = ({ loading, data, tableParams, setTableParams, getListClass, s
                         <FaRegEdit
                             style={{ fontSize: "1.2rem", color: "#1677ff", cursor: "pointer", marginTop: "0.4rem", marginLeft: "0.5rem" }}
                             onClick={() => {
-                                setId(record && record?.id)
+                                setId(record && record?._id)
                             }}
                         />
                         <DeleteOutlined
