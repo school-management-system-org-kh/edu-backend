@@ -1,9 +1,11 @@
 import React from "react";
 import { Layout, Menu } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 const { Sider } = Layout;
 
 const MenuGeneralLeft = ({menuItems, setStoreTitleMenus}) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
   console.log("location", location)
@@ -34,7 +36,7 @@ const MenuGeneralLeft = ({menuItems, setStoreTitleMenus}) => {
                   setStoreTitleMenus(item.title)
                 }}
               >
-                <Menu.Item key={item.key} style={{fontSize:'1rem', fontWeight:500, backgroundColor:"transparent"}}>{item.title}</Menu.Item>
+                <Menu.Item key={item.key} style={{fontSize:'1rem', fontWeight:500, backgroundColor:"transparent"}}>{t(item.title)}</Menu.Item>
               </Menu>
               {/* ✅ Divider after each item except the last one */}
               {index !== menuItems.length - 1 && (

@@ -1,9 +1,11 @@
 import { Alert, Button, Col, DatePicker, Divider, Form, Input, InputNumber, Row, Select } from "antd";
 import TextArea from "antd/es/input/TextArea";
+import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import moment from "moment-timezone";
 
 const GeneralSettingTab = () => {
+    const { t } = useTranslation();
     const [form] = Form.useForm();
     const { Option } = Select;
     const [timezones, setTimezones] = useState([]);
@@ -52,7 +54,7 @@ const GeneralSettingTab = () => {
             <Alert
                 message={
                     <span style={{ fontSize: "0.9rem", fontWeight: 500 }}>
-                        Note: After saving General Setting please once logout then relogin so changes will be come in effect.
+                        {t("Note: After saving General Setting please once logout then relogin so changes will be come in effect.")}
                     </span>
                 }
                 type="info"
@@ -79,15 +81,15 @@ const GeneralSettingTab = () => {
                                     lineHeight: "40px", // vertically align label
                                 }}
                             >
-                                School Name <span style={{ color: "red" }}>*</span>
+                                {t("School Name")} <span style={{ color: "red" }}>*</span>
                             </Col>
                             <Col span={17}>
                                 <Form.Item
                                     name="schoolName"
-                                    rules={[{ required: true, message: "Please enter a school name" }]}
+                                    rules={[{ required: true, message: t("Please enter a school name") }]}
                                     style={{ marginBottom: 0 }}
                                 >
-                                    <Input placeholder="Enter School Name" size="middle" />
+                                    <Input placeholder={t("Enter School Name")} size="middle" />
                                 </Form.Item>
                             </Col>
                         </Row>
@@ -111,15 +113,15 @@ const GeneralSettingTab = () => {
                                     lineHeight: "40px",
                                 }}
                             >
-                                School Code <span style={{ color: "red" }}>*</span>
+                                {t("School Code")} <span style={{ color: "red" }}>*</span>
                             </Col>
                             <Col span={17}>
                                 <Form.Item
                                     name="schoolCode"
-                                    rules={[{ required: true, message: "Please enter a school code" }]}
+                                    rules={[{ required: true, message: t("Please enter a school code") }]}
                                     style={{ marginBottom: 0 }}
                                 >
-                                    <Input placeholder="Enter School Code" size="middle" />
+                                    <Input placeholder={t("Enter School Code")} size="middle" />
                                 </Form.Item>
                             </Col>
                         </Row>
@@ -143,15 +145,15 @@ const GeneralSettingTab = () => {
                                     lineHeight: "40px", // vertically align label
                                 }}
                             >
-                                Phone <span style={{ color: "red" }}>*</span>
+                                {t("Phone")} <span style={{ color: "red" }}>*</span>
                             </Col>
                             <Col span={17}>
                                 <Form.Item
                                     name="phone"
-                                    rules={[{ required: true, message: "Please enter a phone" }]}
+                                    rules={[{ required: true, message: t("Please enter a phone") }]}
                                     style={{ marginBottom: 0 }}
                                 >
-                                    <InputNumber style={{ width: '100%' }} placeholder="Enter Phone" size="middle" />
+                                    <InputNumber style={{ width: '100%' }} placeholder={t("Enter Phone")} size="middle" />
                                 </Form.Item>
                             </Col>
                         </Row>
@@ -174,15 +176,15 @@ const GeneralSettingTab = () => {
                                     lineHeight: "40px",
                                 }}
                             >
-                                Email <span style={{ color: "red" }}>*</span>
+                                {t("Email")} <span style={{ color: "red" }}>*</span>
                             </Col>
                             <Col span={17}>
                                 <Form.Item
                                     name="email"
-                                    rules={[{ required: true, message: "Please enter a email" }]}
+                                    rules={[{ required: true, message: t("Please enter a email") }]}
                                     style={{ marginBottom: 0 }}
                                 >
-                                    <Input placeholder="Enter email" size="middle" />
+                                    <Input placeholder={t("Enter email")} size="middle" />
                                 </Form.Item>
                             </Col>
                         </Row>
@@ -197,19 +199,19 @@ const GeneralSettingTab = () => {
                             lineHeight: "40px", // vertically align label
                         }}
                     >
-                        Address <span style={{ color: "red" }}>*</span>
+                        {t("Address")} <span style={{ color: "red" }}>*</span>
                     </Col>
                     <Col span={21}>
                         <Form.Item
                             name="address"
-                            rules={[{ required: true, message: "Please enter an address" }]}
+                            rules={[{ required: true, message: t("Please enter an address") }]}
                             style={{ marginBottom: 0, marginLeft: "1.34rem" }}
                         >
-                            <TextArea row={3} placeholder="Enter Address" size="middle" />
+                            <TextArea row={3} placeholder={t("Enter Address")} size="middle" />
                         </Form.Item>
                     </Col>
                 </Row>
-                <Divider orientation="left" orientationMargin="0" style={{ fontSize: "1.2rem" }}>Academic Session</Divider>
+                <Divider orientation="left" orientationMargin="0" style={{ fontSize: "1.2rem" }}>{t("Academic Session")}</Divider>
 
                 <Row gutter={24}>
                     <Col span={12}>
@@ -230,15 +232,15 @@ const GeneralSettingTab = () => {
                                     lineHeight: "40px", // vertically align label
                                 }}
                             >
-                                Session <span style={{ color: "red" }}>*</span>
+                                {t("Session")} <span style={{ color: "red" }}>*</span>
                             </Col>
                             <Col span={17}>
                                 <Form.Item
                                     name="Session"
-                                    rules={[{ required: true, message: "Please enter a session" }]}
+                                    rules={[{ required: true, message: t("Please enter a session") }]}
                                     style={{ marginBottom: 0 }}
                                 >
-                                    <DatePicker placeholder="Enter Session" size="middle" onChange={onChange} style={{ width: "100%" }} />
+                                    <DatePicker placeholder={t("Enter Session")} size="middle" onChange={onChange} style={{ width: "100%" }} />
                                 </Form.Item>
                             </Col>
                         </Row>
@@ -262,21 +264,21 @@ const GeneralSettingTab = () => {
                                     lineHeight: "40px",
                                 }}
                             >
-                                Start Month <span style={{ color: "red" }}>*</span>
+                                {t("Start Month")} <span style={{ color: "red" }}>*</span>
                             </Col>
                             <Col span={17}>
                                 <Form.Item
                                     name="startDate"
-                                    rules={[{ required: true, message: "Please enter a Session Start Month" }]}
+                                    rules={[{ required: true, message: t("Please enter a Session Start Month") }]}
                                     style={{ marginBottom: 0 }}
                                 >
-                                    <DatePicker placeholder="Enter Session" size="middle" onChange={onChange} style={{ width: "100%" }} picker="month" />
+                                    <DatePicker placeholder={t("Enter Session")} size="middle" onChange={onChange} style={{ width: "100%" }} picker="month" />
                                 </Form.Item>
                             </Col>
                         </Row>
                     </Col>
                 </Row>
-                <Divider orientation="left" orientationMargin="0" style={{ fontSize: "1.2rem" }}>Date Time</Divider>
+                <Divider orientation="left" orientationMargin="0" style={{ fontSize: "1.2rem" }}>{t("Date Time")}</Divider>
                 <Row gutter={24}>
                     <Col span={8}>
                         <Row
@@ -296,12 +298,12 @@ const GeneralSettingTab = () => {
                                     lineHeight: "40px", // vertically align label
                                 }}
                             >
-                                Date Format <span style={{ color: "red" }}>*</span>
+                                {t("Date Format")} <span style={{ color: "red" }}>*</span>
                             </Col>
                             <Col span={14}>
                                 <Form.Item
                                     name="formatDate"
-                                    rules={[{ required: true, message: "Please enter a session" }]}
+                                    rules={[{ required: true, message: t("Please enter a session") }]}
                                     style={{ marginBottom: 0 }}
                                 >
                                     <Select
@@ -343,18 +345,18 @@ const GeneralSettingTab = () => {
                                     lineHeight: "40px",
                                 }}
                             >
-                                Timezone <span style={{ color: "red" }}>*</span>
+                                {t("Timezone")} <span style={{ color: "red" }}>*</span>
                             </Col>
                             <Col span={15}>
                                 <Form.Item
                                     name="Timezone"
-                                    rules={[{ required: true, message: "Please enter a Timezone" }]}
+                                    rules={[{ required: true, message: t("Please enter a Timezone") }]}
                                     style={{ marginBottom: 0 }}
                                 >
                                     <Select
                                         showSearch
                                         size="middle"
-                                        placeholder="Select Timezone"
+                                        placeholder={t("Select Timezone")}
                                         style={{ width: '100%' }}
                                         optionFilterProp="label"
                                         allowClear={true}
@@ -385,12 +387,12 @@ const GeneralSettingTab = () => {
                                     lineHeight: "40px",
                                 }}
                             >
-                                Start Day Of Week  <span style={{ color: "red" }}>*</span>
+                                {t("Start Day Of Week")}  <span style={{ color: "red" }}>*</span>
                             </Col>
                             <Col span={11}>
                                 <Form.Item
                                     name="week"
-                                    rules={[{ required: true, message: "Please enter a Start Day Of Week" }]}
+                                    rules={[{ required: true, message: t("Please enter a Start Day Of Week") }]}
                                     style={{ marginBottom: 0 }}
                                 >
                                     <Select
@@ -400,20 +402,20 @@ const GeneralSettingTab = () => {
                                         style={{ width: "100%" }}
                                         allowClear={true}
                                     >
-                                        <Option value="Monday">Monday</Option>
-                                        <Option value="Tuesday">Tuesday</Option>
-                                        <Option value="Wednesday">Wednesday</Option>
-                                        <Option value="Thursday">Thursday</Option>
-                                        <Option value="Friday">Friday</Option>
-                                        <Option value="Saturday">Saturday</Option>
-                                        <Option value="Sunday">Sunday</Option>
+                                        <Option value="Monday">{t("Monday")}</Option>
+                                        <Option value="Tuesday">{t("Tuesday")}</Option>
+                                        <Option value="Wednesday">{t("Wednesday")}</Option>
+                                        <Option value="Thursday">{t("Thursday")}</Option>
+                                        <Option value="Friday">{t("Friday")}</Option>
+                                        <Option value="Saturday">{t("Saturday")}</Option>
+                                        <Option value="Sunday">{t("Sunday")}</Option>
                                     </Select>
                                 </Form.Item>
                             </Col>
                         </Row>
                     </Col>
                 </Row>
-                <Divider orientation="left" orientationMargin="0" style={{ fontSize: "1.2rem" }}>Currency</Divider>
+                <Divider orientation="left" orientationMargin="0" style={{ fontSize: "1.2rem" }}>{t("Currency")}</Divider>
                 <Row gutter={24}>
                     <Col span={12}>
                         <Row
@@ -433,12 +435,12 @@ const GeneralSettingTab = () => {
                                     lineHeight: "40px", // vertically align label
                                 }}
                             >
-                                Currency Format <span style={{ color: "red" }}>*</span>
+                                {t("Currency Format")} <span style={{ color: "red" }}>*</span>
                             </Col>
                             <Col span={15}>
                                 <Form.Item
                                     name="currency"
-                                    rules={[{ required: true, message: "Please enter a Currency Format " }]}
+                                    rules={[{ required: true, message: t("Please enter a Currency Format") }]}
                                     style={{ marginBottom: 0 }}
                                 >
                                     <Select
@@ -460,7 +462,7 @@ const GeneralSettingTab = () => {
                     </Col>
                 </Row>
 
-                <Divider orientation="left" orientationMargin="0" style={{ fontSize: "1.2rem" }}>File Upload Path</Divider>
+                <Divider orientation="left" orientationMargin="0" style={{ fontSize: "1.2rem" }}>{t("File Upload Path")}</Divider>
                 <Row gutter={24}>
                     <Col span={12}>
                         <Row
@@ -480,15 +482,15 @@ const GeneralSettingTab = () => {
                                     lineHeight: "40px", // vertically align label
                                 }}
                             >
-                                Base Url <span style={{ color: "red" }}>*</span>
+                                {t("Base Url")} <span style={{ color: "red" }}>*</span>
                             </Col>
                             <Col span={15}>
                                 <Form.Item
                                     name="baseUrl"
-                                    rules={[{ required: true, message: "Please enter a Base Url" }]}
+                                    rules={[{ required: true, message: t("Please enter a Base Url") }]}
                                     style={{ marginBottom: 0 }}
                                 >
-                                    <Input placeholder="Enter Base Url" size="middle" />
+                                    <Input placeholder={t("Enter Base Url")} size="middle" />
                                 </Form.Item>
                             </Col>
                         </Row>
@@ -511,15 +513,15 @@ const GeneralSettingTab = () => {
                                     lineHeight: "40px", // vertically align label
                                 }}
                             >
-                                File Upload Path <span style={{ color: "red" }}>*</span>
+                                {t("File Upload Path")} <span style={{ color: "red" }}>*</span>
                             </Col>
                             <Col span={15}>
                                 <Form.Item
                                     name="filepath"
-                                    rules={[{ required: true, message: "Please enter a File Upload Path " }]}
+                                    rules={[{ required: true, message: t("Please enter a File Upload Path") }]}
                                     style={{ marginBottom: 0 }}
                                 >
-                                    <Input placeholder="Enter File Upload Path " size="middle" />
+                                    <Input placeholder={t("Enter File Upload Path")} size="middle" />
                                 </Form.Item>
                             </Col>
                         </Row>
@@ -533,7 +535,7 @@ const GeneralSettingTab = () => {
                         style={{ width: "20%", fontSize: "1rem", fontWeight: 600 }}
                         size="middle"
                     >
-                        Save
+                        {t("Save")}
                     </Button>
                 </div>
             </Form>

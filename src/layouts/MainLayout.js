@@ -9,7 +9,7 @@ import { FaBullhorn, FaIoxhost, FaUserPlus, FaUniversalAccess, FaDownload, FaCal
 import { MdDashboard, MdOutlineKeyboardDoubleArrowRight, MdPeople, MdSchool } from "react-icons/md";
 import { CgMenuGridR } from "react-icons/cg";
 import { FaListAlt, FaMap, FaMapSigns, FaMoneyBillAlt, FaRegCalendarAlt, FaSitemap } from "react-icons/fa";
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import '../styles/global.css';
 import ListMenuSystem from '../components/ListMenuSystem';
@@ -31,12 +31,15 @@ const { Header, Sider, Content } = Layout;
 
 export default function MainLayout({ displayNone }) {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const location = useLocation();
   const [collapsed, setCollapsed] = useState(false);
   const [open, setOpen] = useState(false);
   const showDrawer = () => setOpen(true);
   const [show, setShow] = useState(false)
   const [data, setData] = useState("")
+  const navigate = useNavigate();
+
+  const currentPath = location.pathname;
 
   // Mock user data - you would typically get this from your authentication context
   const [currentUser] = useState({
@@ -227,6 +230,10 @@ export default function MainLayout({ displayNone }) {
           theme="dark"
           mode="inline"
           items={menuItems}
+          selectedKeys={[currentPath]}
+          defaultOpenKeys={menuItems
+            .filter(item => item.children && item.children.some(child => child.key === currentPath))
+            .map(item => item.key)}
           onClick={(item) => navigate(item.key)}
         />
       </Sider>
@@ -245,7 +252,7 @@ export default function MainLayout({ displayNone }) {
           <h2 style={{ margin: 0 }}>{t("STEMMentor Admin")}</h2>
           <div className='' style={{ display: 'flex', alignItems: 'center' }}>
             <SwitchLanguage />
-            <Tooltip title="Switch Branch" placement="top" color="black" style={{ fontWeight: 600, cursor: "pointer" }}>
+            <Tooltip title={t("Switch Branch")} placement="top" color="black" style={{ fontWeight: 600, cursor: "pointer" }}>
               <HiOutlineSwitchHorizontal onClick={() => setShow(true)} size={24} style={{ marginRight: "1.5rem", cursor: "pointer" }} />
             </Tooltip>
             <Dropdown menu={userMenuProps} trigger={['click']}>

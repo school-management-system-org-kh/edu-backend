@@ -1,6 +1,7 @@
 import { Card, Col, Row } from "antd";
 import GeneralSettingMain from "../../components/SetupSetting/GeneralSetting/GeneralSettingMain";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import GeneralSettingTab from "../../components/SetupSetting/GeneralSetting/GeneralSettingTab";
 import LogoTab from "../../components/SetupSetting/GeneralSetting/LogoTab";
 import LogoBackgroundTab from "../../components/SetupSetting/GeneralSetting/LogoBackgroundTab";
@@ -15,6 +16,7 @@ import FeesTab from "../../components/SetupSetting/GeneralSetting/FeesTab";
 import AttendanceTypeTab from "../../components/SetupSetting/GeneralSetting/AttendanceTypeTab";
 
 const GeneralSettingPage = () => {
+    const { t } = useTranslation();
     const [storeTitleMenus, setStoreTitleMenus] = useState("General Setting")
     const menuItems = [
         { key: "general-setting", title: "General Setting", link: "/settings/general" },
@@ -36,7 +38,7 @@ const GeneralSettingPage = () => {
                 <GeneralSettingMain menuItems={menuItems} storeTitleMenus={storeTitleMenus} setStoreTitleMenus={setStoreTitleMenus}/>
             </Col>
             <Col span={19}>
-                {storeTitleMenus !=="Attendance Type" && <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>{storeTitleMenus}</span>} style={{ height: 'auto' }}>
+                {storeTitleMenus !=="Attendance Type" && <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>{t(storeTitleMenus)}</span>} style={{ height: 'auto' }}>
                     {
                         storeTitleMenus === "General Setting" && <GeneralSettingTab />
                     }

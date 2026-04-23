@@ -1,4 +1,5 @@
 import { Card, Col, Row } from "antd";
+import { useTranslation } from "react-i18next";
 import AddSession from "../../components/SetupSetting/SessionSetting/AddSession";
 import SessionList from "../../components/SetupSetting/SessionSetting/SessionList";
 import { getDataRequest } from "../../api/serviceMethods";
@@ -6,6 +7,7 @@ import { SESSION_URL } from "../../api/URLs";
 import { useEffect, useState } from "react";
 
 const SessionSettingPage = () => {
+    const { t } = useTranslation();
     const [data, setData] = useState("")
     const [loading, setLoading] = useState(false)
     const [keyword, setkeyword] = useState('');
@@ -66,7 +68,7 @@ const SessionSettingPage = () => {
     return (
         <Row gutter={24}>
             <Col span={9}>
-                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>Add Session</span>} style={{ height: 'auto' }}>
+                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>{t("Add Session")}</span>} style={{ height: 'auto' }}>
                     <AddSession 
                         getListSession={getListSessions}
                         id={id} setId={setId}
@@ -76,7 +78,7 @@ const SessionSettingPage = () => {
                 </Card>
             </Col>
             <Col span={15}>
-                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>Session List</span>} style={{ height: 'auto' }}>
+                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>{t("Session List")}</span>} style={{ height: 'auto' }}>
                     <SessionList 
                         data={data} tableParams={tableParams}
                         setTableParams={setTableParams}

@@ -2,11 +2,13 @@ import { Card, Col, Row, Tag } from "antd";
 import BackupHistoryTable from "../../components/SetupSetting/BackupHistory/BackupHistoryTable";
 import UploadDrag from "../../components/SetupSetting/Addons/UploadDrag";
 import { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { CopyOutlined, EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
 import { nanoid } from "nanoid";
 import MessageConfirmModal from "../../components/Modals/MessageConfirmModal";
 
 const BackupHistoryPage = () => {
+    const { t } = useTranslation();
     const [secretKey, setSecretKey] = useState(nanoid(32));
     const [showKey, setShowKey] = useState(false);
     const messageModalRef = useRef('');
@@ -18,10 +20,10 @@ const BackupHistoryPage = () => {
     const handleCopy = () => {
         navigator.clipboard.writeText(secretKey)
             .then(() => {
-                messageModalRef.current.showSuccessConfirmsAutoClose("Table copied to clipboard!", () => { }, "", true);
+                messageModalRef.current.showSuccessConfirmsAutoClose(t("Table copied to clipboard!"), () => { }, "", true);
             })
             .catch(() => {
-                messageModalRef.current.showWarningConfirm("Table copied to clipboard!", () => { }, "", true);
+                messageModalRef.current.showWarningConfirm(t("Table copied to clipboard!"), () => { }, "", true);
             });
     };
 
@@ -29,19 +31,19 @@ const BackupHistoryPage = () => {
     return (
         <Row gutter={24}>
             <Col span={15}>
-                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>Backup History</span>} style={{ height: 'auto' }}>
+                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>{t("Backup History")}</span>} style={{ height: 'auto' }}>
                     <BackupHistoryTable />
                 </Card>
             </Col>
             <Col span={9}>
-                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>Upload From Local Directory</span>} style={{ height: 'auto' }}>
+                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>{t("Upload From Local Directory")}</span>} style={{ height: 'auto' }}>
                     <UploadDrag width="100%" />
                 </Card>
                 <Card
                     title={
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <span style={{ fontWeight: 600, fontSize: "1.25rem" }}>Cron Secret Key</span>
-                            <Tag color="#727272" style={{ cursor: "pointer" }} onClick={regenerateKey}>Regenerate</Tag>
+                            <span style={{ fontWeight: 600, fontSize: "1.25rem" }}>{t("Cron Secret Key")}</span>
+                            <Tag color="#727272" style={{ cursor: "pointer" }} onClick={regenerateKey}>{t("Regenerate")}</Tag>
                         </div>
                     }
                     style={{ height: 'auto', marginTop: 20 }}
@@ -62,7 +64,7 @@ const BackupHistoryPage = () => {
                                 <CopyOutlined
                                     style={{ fontSize: 16, color: "#595959", cursor: "pointer" }}
                                     onClick={handleCopy}
-                                    title="Copy to clipboard"
+                                    title={t("Copy to clipboard")}
                                 />
                             )}
 
@@ -71,13 +73,13 @@ const BackupHistoryPage = () => {
                                 <EyeOutlined
                                     style={{ fontSize: 16, cursor: "pointer" }}
                                     onClick={() => setShowKey(false)}
-                                    title="Hide key"
+                                    title={t("Hide key")}
                                 />
                             ) : (
                                 <EyeInvisibleOutlined
                                     style={{ fontSize: 16, cursor: "pointer" }}
                                     onClick={() => setShowKey(true)}
-                                    title="Show key"
+                                    title={t("Show key")}
                                 />
                             )}
                         </div>

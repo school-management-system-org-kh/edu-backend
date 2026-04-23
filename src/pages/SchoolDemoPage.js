@@ -1,4 +1,5 @@
 import { Image } from "antd"
+import { useTranslation } from "react-i18next";
 import features from '../assets/features.png';
 import { Card, Row, Col, Avatar, Typography } from 'antd';
 import {
@@ -15,6 +16,7 @@ import {
 import { useNavigate } from "react-router-dom";
 
 const SchoolDemoPage = () => {
+    const { t } = useTranslation();
     const navigate = useNavigate();
     const { Text } = Typography;
     const dataFeatures = [
@@ -90,8 +92,8 @@ const SchoolDemoPage = () => {
             padding: '60px'
         }}>
             <div className="" style={{ alignItems: "center", display: "flex", flexDirection: "column" }}>
-                <h1>Try Smart School demo</h1>
-                <p>Try handson demonstration of Smart School with sample data</p>
+                <h1>{t("Try Smart School demo")}</h1>
+                <p>{t("Try handson demonstration of Smart School with sample data")}</p>
                 <div className="" style={{ display: 'flex' }}>
                     <Image style={{width:"60rem"}} src={features} alt="" preview={false} />
                     <div >
@@ -132,7 +134,7 @@ const SchoolDemoPage = () => {
                                             }}
                                         />
                                         <Text strong style={{ color: item.color, fontSize: '16px', marginLeft:'1rem' }}>
-                                            {item.name}
+                                            {t(item.name)}
                                         </Text>
                                     </Card>
                                 </Col>

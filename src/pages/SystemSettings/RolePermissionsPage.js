@@ -1,4 +1,5 @@
 import { Card, Col, Row } from "antd";
+import { useTranslation } from "react-i18next";
 import Role from "../../components/SetupSetting/RolePermission/Role";
 import RoleList from "../../components/SetupSetting/RolePermission/RoleList";
 import { getDataRequest } from "../../api/serviceMethods";
@@ -7,6 +8,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 const RolePermissionsPage = () => {
+    const { t } = useTranslation();
     const [data, setData] = useState("")
     const [loading, setLoading] = useState(false)
     const [keyword, setkeyword] = useState('');
@@ -68,7 +70,7 @@ const RolePermissionsPage = () => {
     return (
         <Row gutter={24}>
             <Col span={9}>
-                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>Role</span>} style={{ height: 'auto' }}>
+                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>{t("Role")}</span>} style={{ height: 'auto' }}>
                     <Role
                         getListRole={getListRole}
                         id={id} setId={setId}
@@ -78,7 +80,7 @@ const RolePermissionsPage = () => {
                 </Card>
             </Col>
             <Col span={15}>
-                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>Role List</span>} style={{ height: 'auto' }}>
+                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>{t("Role List")}</span>} style={{ height: 'auto' }}>
                     <RoleList
                         data={data} tableParams={tableParams}
                         setTableParams={setTableParams}

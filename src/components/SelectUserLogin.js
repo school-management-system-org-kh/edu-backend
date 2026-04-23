@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, Row, Col, Avatar, Typography } from 'antd';
 import {
   UserOutlined,
@@ -12,6 +13,7 @@ import {
 const { Text } = Typography;
 
 function SelectUserLogin() {
+  const { t } = useTranslation();
   const firstRow = [
     {
       background: "#9c27b0",
@@ -93,7 +95,7 @@ function SelectUserLogin() {
                     }} 
                   />
                   <Text strong style={{ color: item.color, fontSize: '14px', marginLeft:"0.5rem" }}>
-                    {item.name}
+                    {t(item.name)}
                   </Text>
                 </Card>
               </Col>
@@ -137,7 +139,7 @@ function SelectUserLogin() {
                     }} 
                   />
                   <Text strong style={{ color: item.color, fontSize: '14px', marginLeft:"0.5rem" }}>
-                    {item.name}
+                    {t(item.name)}
                   </Text>
                 </Card>
               </Col>

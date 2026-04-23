@@ -20,7 +20,7 @@ const AddSubject = ({ getListSubject, id, setId, setLoading }) => {
 
     const checkError = () => {
         if (!dataObject.name || !dataObject.type) {
-            return "Please fill in all required fields."
+            return t("Please fill in all required fields.")
         }
         return false
     }
@@ -100,7 +100,7 @@ const AddSubject = ({ getListSubject, id, setId, setLoading }) => {
                 });
         } catch (error) {
             setLoading(false);
-            messageModalRef.current.showWarningConfirmsAutoClose('Server Error!', () => { }, "", true);
+            messageModalRef.current.showWarningConfirmsAutoClose(t('Server Error!'), () => { }, "", true);
         }
     }
     useEffect(() => {
@@ -147,7 +147,7 @@ const AddSubject = ({ getListSubject, id, setId, setLoading }) => {
                 });
         } catch (error) {
             setLoading(false);
-            messageModalRef.current.showWarningConfirmsAutoClose('Server Error!', () => { }, "", true);
+            messageModalRef.current.showWarningConfirmsAutoClose(t('Server Error!'), () => { }, "", true);
         }
     }
 
@@ -160,7 +160,7 @@ const AddSubject = ({ getListSubject, id, setId, setLoading }) => {
         >
 
             <Form.Item
-                label={<span style={{ fontSize: "1rem", fontWeight: 500 }}>Subject Name<span style={{ color: "red" }}> *</span></span>}
+                label={<span style={{ fontSize: "1rem", fontWeight: 500 }}>{t("Subject Name")}<span style={{ color: "red" }}> *</span></span>}
                 name="name"
                 style={{ marginBottom: 12 }} // 👈 reduce bottom spacing
             >
@@ -188,14 +188,14 @@ const AddSubject = ({ getListSubject, id, setId, setLoading }) => {
                         form.setFieldValue("type", val);
                     }}
                     options={[
-                        { value: "theory", label: "Theory" },
-                        { value: "practical", label: "Practical" },
+                        { value: "theory", label: t("Theory") },
+                        { value: "practical", label: t("Practical") },
                     ]}
                 />
             </Form.Item>
 
             <Form.Item
-                label={<span style={{ fontSize: "1rem", fontWeight: 500 }}>Subject Code</span>}
+                label={<span style={{ fontSize: "1rem", fontWeight: 500 }}>{t("Subject Code")}</span>}
                 name="code"
                 style={{ marginBottom: 12 }} // 👈 reduce bottom spacing
             >
@@ -212,7 +212,7 @@ const AddSubject = ({ getListSubject, id, setId, setLoading }) => {
             {/* Centered Save button */}
             <div style={{ textAlign: "center", marginTop: "24px" }}>
                 <Button type="primary" onClick={id ? handleUpdate : handleSubmit} style={{ width: "30%", fontSize: "1rem", fontWeight: 600 }} size="middle">
-                    {id ? "Update" : "Save"}
+                    {id ? t("Update") : t("Save")}
                 </Button>
             </div>
             <MessageConfirmModal textCentered ref={messageModalRef} />

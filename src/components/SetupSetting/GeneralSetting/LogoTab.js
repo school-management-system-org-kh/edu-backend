@@ -1,4 +1,5 @@
 import { Button, Card } from "antd";
+import { useTranslation } from "react-i18next";
 
 const themes = [
   { key: "default", label: "Print Logo", img: require("../../../assets/logo.png"), size:"(170px X 184px)" },
@@ -8,6 +9,7 @@ const themes = [
 ];
 
 const LogoTab = () => {
+  const { t } = useTranslation();
 
 
   return (
@@ -23,7 +25,7 @@ const LogoTab = () => {
         {themes.map((theme) => (
           <Card
             key={theme.key}
-            title={theme.label}
+            title={t(theme.label)}
             hoverable
             style={{
               width: "calc(25% - 12px)", // ✅ 4 per row
@@ -33,7 +35,7 @@ const LogoTab = () => {
           >
             <img
               src={theme.img}
-              alt={theme.label}
+              alt={t(theme.label)}
               style={{
                 width: "100%",
                 display: "block",
@@ -55,7 +57,7 @@ const LogoTab = () => {
                 marginLeft:'4rem'
               }}
             >
-              Update
+              {t("Update")}
             </Button>
           </Card>
         ))}

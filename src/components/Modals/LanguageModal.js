@@ -1,6 +1,7 @@
 import { Modal, Button, Form } from "antd";
 import InputComponent from "../input/InputComponent";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 const LanguageModal = ({
     show, setShow,
@@ -9,6 +10,7 @@ const LanguageModal = ({
     isSubmit, setIsSubmit,
     form, id
 }) => {
+    const { t } = useTranslation();
 
     // Close modal + reset
     const handleClose = () => {
@@ -33,7 +35,7 @@ const LanguageModal = ({
 
     return (
         <Modal
-            title={<span style={{ fontSize: "1.2rem", fontWeight: 600 }}>{id ? "Update" : "Create"} Language</span>}
+            title={<span style={{ fontSize: "1.2rem", fontWeight: 600 }}>{id ? t("Update") : t("Create")} {t("Language")}</span>}
             centered
             open={show}
             footer={null}
@@ -44,7 +46,7 @@ const LanguageModal = ({
                 
                 {/* Language */}
                 <Form.Item
-                    label={<span style={{ fontSize: "0.875rem", fontWeight: 500 }}>Language<span style={{ color: "red" }}> *</span></span>}
+                    label={<span style={{ fontSize: "0.875rem", fontWeight: 500 }}>{t("Language")}<span style={{ color: "red" }}> *</span></span>}
                     name="language"
                     style={{ marginBottom: 12 }}
                 >
@@ -58,7 +60,7 @@ const LanguageModal = ({
 
                 {/* Short Code */}
                 <Form.Item
-                    label={<span style={{ fontSize: "0.875rem", fontWeight: 500 }}>Short Code<span style={{ color: "red" }}> *</span></span>}
+                    label={<span style={{ fontSize: "0.875rem", fontWeight: 500 }}>{t("Short Code")}<span style={{ color: "red" }}> *</span></span>}
                     name="shortCode"
                     style={{ marginBottom: 12 }}
                 >
@@ -72,7 +74,7 @@ const LanguageModal = ({
 
                 {/* Country Code */}
                 <Form.Item
-                    label={<span style={{ fontSize: "0.875rem", fontWeight: 500 }}>Country Code<span style={{ color: "red" }}> *</span></span>}
+                    label={<span style={{ fontSize: "0.875rem", fontWeight: 500 }}>{t("Country Code")}<span style={{ color: "red" }}> *</span></span>}
                     name="countryCode"
                     style={{ marginBottom: 12 }}
                 >
@@ -92,7 +94,7 @@ const LanguageModal = ({
                         style={{ width: "20%", fontSize: "1rem", fontWeight: 600 }}
                         size="middle"
                     >
-                        Save
+                        {t("Save")}
                     </Button>
                 </div>
 

@@ -1,7 +1,9 @@
 import { Table, Card, InputNumber, Radio, Switch, Row, Col, Tag } from "antd";
+import { useTranslation } from "react-i18next";
 import { useState } from "react";
 
 const CurrenciesPage = () => {
+    const { t } = useTranslation();
     const [data, setData] = useState([
         { key: "1", currency: "USD", shortCode: "USD", currencySymbol: "$", baseCurrency: true, conversionRate: 1.00 },
         { key: "2", currency: "KHR", shortCode: "KHR", currencySymbol: "៛", baseCurrency: false, conversionRate: 4000 },
@@ -27,11 +29,11 @@ const CurrenciesPage = () => {
     };
 
     const columns = [
-        { title: "Currency", dataIndex: "currency", key: "currency" },
-        { title: "Short Code", dataIndex: "shortCode", key: "shortCode" },
-        { title: "Currency Symbol", dataIndex: "currencySymbol", key: "currencySymbol" },
+        { title: t("Currency"), dataIndex: "currency", key: "currency" },
+        { title: t("Short Code"), dataIndex: "shortCode", key: "shortCode" },
+        { title: t("Currency Symbol"), dataIndex: "currencySymbol", key: "currencySymbol" },
         {
-            title: "Conversion Rate",
+            title: t("Conversion Rate"),
             dataIndex: "conversionRate",
             key: "conversionRate",
             render: (_, record) => (
@@ -59,16 +61,16 @@ const CurrenciesPage = () => {
             ),
         },
         {
-            title: "Base Currency",
+            title: t("Base Currency"),
             dataIndex: "baseCurrency",
             key: "baseCurrency",
             align: 'center',
             render: (baseCurrency) => (
-                baseCurrency ? <Tag color="#87d068" style={{ fontWeight: 500 }}>Active</Tag> : ""
+                baseCurrency ? <Tag color="#87d068" style={{ fontWeight: 500 }}>{t("Active")}</Tag> : ""
             )
         },
         {
-            title: "Active",
+            title: t("Active"),
             dataIndex: "active",
             key: "active",
             align: 'center',
@@ -80,7 +82,7 @@ const CurrenciesPage = () => {
             ),
         },
         {
-            title: "Action",
+            title: t("Action"),
             key: "action",
             render: (_, record) => <Switch defaultChecked />,
         },
@@ -89,7 +91,7 @@ const CurrenciesPage = () => {
     return (
         <Row gutter={24}>
             <Col span={24}>
-                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>Currencies</span>}>
+                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>{t("Currencies")}</span>}>
                     <Table
                         dataSource={data}
                         columns={columns}

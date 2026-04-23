@@ -2,8 +2,8 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next'
 
 const languages = ['en', 'cn', 'kh'];
-var langs =  localStorage.getItem("lang")
-const lang = languages.includes(langs) ? langs : 'cn';
+var langs = localStorage.getItem("lang");
+const lang = languages.includes(langs) ? langs : 'en';
 
 i18n.use(initReactI18next).init({
     fallbackLng: lang,
@@ -24,6 +24,6 @@ i18n.use(initReactI18next).init({
     defaultNS: 'translations'
 });
 
-i18n.languages = ['en', 'cn']
+i18n.languages = ['en', 'cn', 'kh']
 
 export default i18n;

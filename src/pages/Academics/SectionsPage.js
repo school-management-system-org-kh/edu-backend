@@ -2,10 +2,12 @@ import { Card, Col, Row } from "antd";
 import AddSection from "../../components/Academics/Selection/AddSection";
 import SectionList from "../../components/Academics/Selection/SectionList";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { SECTION_LIST_URL, SECTION_URL } from "../../api/URLs";
 import { getDataRequest } from "../../api/serviceMethods";
 
 const SectionsPage = () => {
+    const { t } = useTranslation();
     const [data, setData] = useState("")
     const [loading, setLoading] = useState(false)
     const [keyword, setkeyword] = useState('');
@@ -66,7 +68,7 @@ const SectionsPage = () => {
     return (
         <Row gutter={24}>
             <Col span={9}>
-                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>Add Section</span>} style={{ height: 'auto' }}>
+                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>{id ? t("Edit Section") : t("Add Section")}</span>} style={{ height: 'auto' }}>
                     <AddSection 
                         getListSection={getListSections}
                         id={id} setId={setId}
@@ -76,7 +78,7 @@ const SectionsPage = () => {
                 </Card>
             </Col>
             <Col span={15}>
-                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>Section List</span>} style={{ height: 'auto' }}>
+                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>{t("Section List")}</span>} style={{ height: 'auto' }}>
                     <SectionList 
                         data={data} tableParams={tableParams}
                         setTableParams={setTableParams}

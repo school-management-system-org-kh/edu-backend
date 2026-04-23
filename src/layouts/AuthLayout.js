@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import SwitchLanguage from '../components/switchLanguages/SwitchLanguage';
 import { Form, Input, Button, Card, message, Row, Col, Modal } from 'antd';
 import { UserOutlined, LockOutlined, ReloadOutlined } from '@ant-design/icons';
 import { useNavigate, Link } from 'react-router-dom';
 import SelectUserLogin from '../components/SelectUserLogin';
 
 const AuthLayoutPage = () => {
+    const { t } = useTranslation();
     const [loading, setLoading] = useState(false);
     const [showCaptcha, setShowCaptcha] = useState(false);
     const [selectedImages, setSelectedImages] = useState([]);
@@ -13,7 +16,7 @@ const AuthLayoutPage = () => {
 
     // Sample CAPTCHA data - in a real app, this would come from your backend
     const [captchaData] = useState({
-        instruction: "Select all images containing animals",
+        instruction: t("Select all images containing animals"),
         images: [
             { id: 1, url: require('../assets/tiger.avif'), isAnimal: true },
             { id: 2, url: require('../assets/Watermelon.webp'), isAnimal: false },
@@ -46,19 +49,19 @@ const AuthLayoutPage = () => {
         const animalIds = captchaData.images
             .filter(img => img.isAnimal)
             .map(img => img.id);
-        
+
         const allAnimalsSelected = animalIds.every(id => selectedImages.includes(id));
-        const noNonAnimalsSelected = selectedImages.every(id => 
+        const noNonAnimalsSelected = selectedImages.every(id =>
             captchaData.images.find(img => img.id === id).isAnimal
         );
-        
+
         if (allAnimalsSelected && noNonAnimalsSelected) {
-            message.success('Verification successful!');
+            message.success(t('Verification successful!'));
             setShowCaptcha(false);
             // Proceed with login
             performLogin(formData);
         } else {
-            message.error('Please select all images containing animals. Try again.');
+            message.error(t('Please select all images containing animals. Try again.'));
             setSelectedImages([]);
         }
     };
@@ -69,10 +72,10 @@ const AuthLayoutPage = () => {
             // Simulate API call
             await new Promise(resolve => setTimeout(resolve, 1500));
             console.log('Login values:', values);
-            message.success('Login successful!');
+            message.success(t('Login successful!'));
             navigate('/dashboard');
         } catch (error) {
-            message.error('Login failed. Please try again.');
+            message.error(t('Login failed. Please try again.'));
         } finally {
             setLoading(false);
         }
@@ -81,7 +84,7 @@ const AuthLayoutPage = () => {
     const refreshCaptcha = () => {
         // In a real app, this would fetch new challenges from the server
         setSelectedImages([]);
-        message.info('CAPTCHA refreshed');
+        message.info(t('CAPTCHA refreshed'));
     };
 
     return (
@@ -93,11 +96,14 @@ const AuthLayoutPage = () => {
             alignItems: 'center',
             padding: '20px'
         }}>
+            <div style={{ position: 'absolute', top: 20, right: 20 }}>
+                <SwitchLanguage />
+            </div>
             <Card
                 title={
                     <div style={{ textAlign: 'center', padding: '10px 0' }}>
-                        <h1 style={{ margin: 0, color: '#1890ff' }}>Welcome</h1>
-                        <h2 style={{ margin: 0, color: '#1890ff' }}>Smart School System</h2>
+                        <h1 style={{ margin: 0, color: '#1890ff' }}>{t("Welcome")}</h1>
+                        <h2 style={{ margin: 0, color: '#1890ff' }}>{t("Smart School System")}</h2>
                     </div>
                 }
                 style={{
@@ -115,50 +121,50 @@ const AuthLayoutPage = () => {
                     style={{ marginBottom: 0 }}
                 >
                     <Form.Item
-                        label="Email or Username"
+                        label={t("Email or Username")}
                         name="username"
                         rules={[
-                            { required: true, message: 'Please input your email or username!' }
+                            { required: true, message: t('Please input your email or username!') }
                         ]}
                         style={{ marginBottom: 1 }}
                     >
                         <Input
                             prefix={<UserOutlined />}
-                            placeholder="Enter your email or username"
+                            placeholder={t("Enter your email or username")}
                         />
                     </Form.Item>
 
                     <Form.Item
-                        label="Password"
+                        label={t("Password")}
                         name="password"
                         rules={[
-                            { required: true, message: 'Please input your password!' },
-                            { min: 6, message: 'Password must be at least 6 characters!' }
+                            { required: true, message: t('Please input your password!') },
+                            { min: 6, message: t('Password must be at least 6 characters!') }
                         ]}
                         style={{ marginBottom: 16 }}
                     >
                         <Input.Password
                             prefix={<LockOutlined />}
-                            placeholder="Enter your password"
+                            placeholder={t("Enter your password")}
                         />
                     </Form.Item>
                     <Form.Item style={{ marginBottom: 16, }}>
                         <Button
                             type="primary"
                             htmlType="submit"
-                            style={{ width: '100%', fontSize: "1rem", fontWeight: 600, marginTop:"1rem" }}
+                            style={{ width: '100%', fontSize: "1rem", fontWeight: 600, marginTop: "1rem" }}
                             loading={loading}
                         >
-                            Login
+                            {t("Login")}
                         </Button>
                     </Form.Item>
                     <SelectUserLogin />
-                    <div style={{marginBottom: 20 , marginTop:"0.5rem", display:'flex', justifyContent:"space-between" }}>
-                        <Link to="#!" style={{ fontSize: '14px'}}>
-                            Forgot password?
+                    <div style={{ marginBottom: 20, marginTop: "0.5rem", display: 'flex', justifyContent: "space-between" }}>
+                        <Link to="#!" style={{ fontSize: '14px' }}>
+                            {t("Forgot password?")}
                         </Link>
-                        <Link to="#!" style={{ fontSize: '14px', color:"black"}}>
-                            Front Site
+                        <Link to="#!" style={{ fontSize: '14px', color: "black" }}>
+                            {t("Front Site")}
                         </Link>
                     </div>
 
@@ -166,20 +172,20 @@ const AuthLayoutPage = () => {
 
                 {/* CAPTCHA Modal */}
                 <Modal
-                    title="Verify You're Not a Robot"
+                    title={t("Verify You're Not a Robot")}
                     open={showCaptcha}
                     onCancel={() => setShowCaptcha(false)}
                     footer={[
                         <Button key="refresh" icon={<ReloadOutlined />} onClick={refreshCaptcha}>
-                            Refresh
+                            {t("Refresh")}
                         </Button>,
-                        <Button 
-                            key="verify" 
-                            type="primary" 
+                        <Button
+                            key="verify"
+                            type="primary"
                             onClick={verifyCaptcha}
                             disabled={selectedImages.length === 0}
                         >
-                            Verify
+                            {t("Verify")}
                         </Button>
                     ]}
                     width={600}
@@ -189,14 +195,14 @@ const AuthLayoutPage = () => {
                             {captchaData.instruction}
                         </p>
                     </div>
-                    
+
                     <Row gutter={[16, 16]}>
                         {captchaData.images.map(image => (
                             <Col span={8} key={image.id}>
                                 <div
                                     style={{
-                                        border: selectedImages.includes(image.id) 
-                                            ? '3px solid #1890ff' 
+                                        border: selectedImages.includes(image.id)
+                                            ? '3px solid #1890ff'
                                             : '3px solid #f0f0f0',
                                         borderRadius: '8px',
                                         padding: '4px',

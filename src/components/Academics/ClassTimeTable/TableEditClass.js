@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, Form, Input, Table, Select } from 'antd';
 import { FaPlus, FaRegClock } from 'react-icons/fa';
 import { MdDelete } from "react-icons/md";
@@ -119,6 +120,7 @@ const EditableCell = ({
 };
 
 const TableEditClass = () => {
+  const { t } = useTranslation();
   const [dataSource, setDataSource] = useState([]);
   const [count, setCount] = useState(2);
   const messageModalRef = useRef('');
@@ -133,9 +135,9 @@ const TableEditClass = () => {
         //   return;
         // } else {
         const newData = dataSource.filter((item) => item.key !== key);
-        messageModalRef.current.showWarningConfirm('Are you sure you want to delete this class time table?', () => {
+        messageModalRef.current.showWarningConfirm(t('Are you sure you want to delete this class time table?'), () => {
             // .then(async(res) => {
-            messageModalRef.current.showSuccessConfirmsAutoClose("Successfully", () => { 
+            messageModalRef.current.showSuccessConfirmsAutoClose(t("Successfully"), () => { 
               setDataSource(newData);
             }, "", true);
             // }).catch((err) => {
@@ -147,37 +149,37 @@ const TableEditClass = () => {
 
   const defaultColumns = [
     {
-      title: "Subject",
+      title: t("Subject"),
       dataIndex: "subject",
       editable: true,
       inputType: "select-subject",
     },
     {
-      title: "Teacher",
+      title: t("Teacher"),
       dataIndex: "teacher",
       editable: true,
       inputType: "select-teacher",
     },
     {
-      title: "Time From",
+      title: t("Time From"),
       dataIndex: "timeFrom",
       editable: true,
       inputType: "time",
     },
     {
-      title: "Time To",
+      title: t("Time To"),
       dataIndex: "timeTo",
       editable: true,
       inputType: "time",
     },
     {
-      title: "Room No.",
+      title: t("Room No."),
       dataIndex: "room",
       editable: true,
       inputType: "text",
     },
     {
-      title: "Action",
+      title: t("Action"),
       dataIndex: "operation",
       render: (_, record) =>
         dataSource.length >= 1 ? (
@@ -251,7 +253,7 @@ const TableEditClass = () => {
           fontSize: "1rem",
         }}
       >
-        <FaPlus size={19} /> Add New
+        <FaPlus size={19} /> {t("Add New")}
       </Button>
       <Table
         components={components}

@@ -1,13 +1,15 @@
 import { Modal, Button, Form, Radio, Space, Card } from "antd";
+import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 
 const BranchModal = ({ show, setShow, data }) => {
+    const { t } = useTranslation();
     const [selectedBranch, setSelectedBranch] = useState(1);
     const branchOptions = [
-        { id: 1, name: "Home Branch" },
-        { id: 2, name: "STEM Mentor School 1" },
-        { id: 3, name: "STEM Mentor School 2" },
-        { id: 4, name: "STEM Mentor School 3" },
+        { id: 1, name: t("Home Branch") },
+        { id: 2, name: t("STEM Mentor School 1") },
+        { id: 3, name: t("STEM Mentor School 2") },
+        { id: 4, name: t("STEM Mentor School 3") },
     ];
     const [form] = Form.useForm();
 
@@ -45,7 +47,7 @@ const BranchModal = ({ show, setShow, data }) => {
 
     return (
         <Modal
-            title={<span style={{ fontSize: "1.2rem" }}>Switch Branch</span>}
+            title={<span style={{ fontSize: "1.2rem" }}>{t("Switch Branch")}</span>}
             style={{ top: 65 }}
             open={show}
             footer={null} // hide default footer
@@ -85,7 +87,7 @@ const BranchModal = ({ show, setShow, data }) => {
             {/* Centered Save button */}
             <div style={{ textAlign: "center", marginTop: "24px" }}>
                 <Button type="primary" onClick={handleSave} style={{ width: "20%", fontSize: "1rem", fontWeight: 600 }} size="middle">
-                    Update
+                    {t("Update")}
                 </Button>
             </div>
         </Modal>

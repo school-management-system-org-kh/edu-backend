@@ -1,11 +1,13 @@
 import { Card, Col, Row } from "antd";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import AddSubject from "../../components/Academics/Subject/AddSubject";
 import SubjectList from "../../components/Academics/Subject/SubjectList";
 import { getDataRequest } from "../../api/serviceMethods";
 import { SUBJECT_URL } from "../../api/URLs";
 
 const SubjectPage = () => {
+    const { t } = useTranslation();
     const [data, setData] = useState("")
     const [loading, setLoading] = useState(false)
     const [keyword, setkeyword] = useState('');
@@ -66,7 +68,7 @@ const SubjectPage = () => {
     return (
         <Row gutter={24}>
             <Col span={9}>
-                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>{id ? "Edit Subject" : "Add Subject"}</span>} style={{ height: 'auto' }}>
+                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>{id ? t("Edit Subject") : t("Add Subject")}</span>} style={{ height: 'auto' }}>
                     <AddSubject
                         getListSubject={getListSubjects}
                         id={id} setId={setId}
@@ -76,7 +78,7 @@ const SubjectPage = () => {
                 </Card>
             </Col>
             <Col span={15}>
-                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>Subject List</span>} style={{ height: 'auto' }}>
+                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>{t("Subject List")}</span>} style={{ height: 'auto' }}>
                     <SubjectList
                         data={data} tableParams={tableParams}
                         setTableParams={setTableParams}

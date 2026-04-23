@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { Col, Input, Row, Spin } from "antd";
 import { AiOutlineFileExcel, AiOutlineFilePdf } from "react-icons/ai";
 import { LiaPrintSolid } from "react-icons/lia";
@@ -12,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import TableFetchData from "../../data-table/TableFetchData";
 
 const RoleList = ({ loading, data, tableParams, setTableParams, setkeyword, setId }) => {
+  const { t } = useTranslation();
   const messageModalRef = useRef('');
   const navigate = useNavigate();
   const exportToExcel = (data, fileName = "role_lists.xlsx") => {
@@ -107,7 +109,7 @@ const RoleList = ({ loading, data, tableParams, setTableParams, setkeyword, setI
     },
     columns: [
       {
-        title: <span style={{fontWeight:600}}>Name</span>,
+        title: <span style={{fontWeight:600}}>{t("Name")}</span>,
         dataIndex: "name",
         key: "name",
         sorter: (a, b) => a.name.localeCompare(b.name), // Proper string sorting
@@ -115,15 +117,15 @@ const RoleList = ({ loading, data, tableParams, setTableParams, setkeyword, setI
         showSorterTooltip: false, // removes tooltip, keeps icon
       },
       {
-        title: <span style={{fontWeight:600}}>Type</span>,
+        title: <span style={{fontWeight:600}}>{t("Type")}</span>,
         dataIndex: "type",
         key: "type",
         render: (_, record) => (
-          <span>{record.type ? record.type : 'System'}</span>
+          <span>{record.type ? record.type : t('System')}</span>
         )
       },
       {
-        title: "Action",
+        title: t("Action"),
         key: "action",
         align: "right", // align to end
         render: (_, record) => (
@@ -154,7 +156,7 @@ const RoleList = ({ loading, data, tableParams, setTableParams, setkeyword, setI
       >
         <Col span={8} style={{ fontSize: "1rem", fontWeight: 500 }}>
           <Input
-            placeholder="Search....."
+            placeholder={t("Search.....")}
             onChange={(e) => setkeyword(e.target.value)}
             allowClear
           />

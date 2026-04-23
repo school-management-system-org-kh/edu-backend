@@ -267,7 +267,7 @@ const LanguagePage = () => {
     },
     columns: [
       {
-        title: <span style={{fontWeight:600}}>Language</span>,
+        title: <span style={{fontWeight:600}}>{t("Language")}</span>,
         dataIndex: "language",
         key: "language",
         sorter: (a, b) => a.language.localeCompare(b.language), // Proper string sorting
@@ -285,7 +285,7 @@ const LanguagePage = () => {
         }
       },
       {
-        title: <span style={{fontWeight:600}}>Short Code</span>,
+        title: <span style={{fontWeight:600}}>{t("Short Code")}</span>,
         sorter: (a, b) => a.shortCode.localeCompare(b.shortCode), // Proper string sorting
         sortDirections: ["ascend", "descend"], // show sort icons
         showSorterTooltip: false, // removes tooltip, keeps icon
@@ -293,7 +293,7 @@ const LanguagePage = () => {
         key: "shortCode"
       },
       {
-        title: <span style={{fontWeight:600}}>Country Code</span>,
+        title: <span style={{fontWeight:600}}>{t("Country Code")}</span>,
         sorter: (a, b) => a.countryCode.localeCompare(b.countryCode), // Proper string sorting
         sortDirections: ["ascend", "descend"], // show sort icons
         showSorterTooltip: false, // removes tooltip, keeps icon
@@ -301,7 +301,7 @@ const LanguagePage = () => {
         key: "countryCode"
       },
       {
-        title: "Action",
+        title: t("Action"),
         key: "action",
         render: (_, record) => (
           <Space className="d-flex aligin-items-center">
@@ -337,7 +337,7 @@ const LanguagePage = () => {
   return (
     <Card title={
       <div className="" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <div style={{ fontWeight: 600, fontSize: "1.25rem" }}>Language List</div>
+        <div style={{ fontWeight: 600, fontSize: "1.25rem" }}>{t("Language List")}</div>
         <Button
           onClick={() => {
             setShow(true)
@@ -349,7 +349,7 @@ const LanguagePage = () => {
           type="" icon={<HiPlus />}
           size="middle" style={{ fontSize: "1rem", fontWeight: 500 }}
         >
-          Create
+          {t("Create")}
         </Button>
       </div>
     }>

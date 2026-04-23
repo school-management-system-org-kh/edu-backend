@@ -1,11 +1,13 @@
 import { Card, Col, Row } from "antd";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import AddClass from "../../components/Academics/Class/AddClass";
 import ClassList from "../../components/Academics/Class/ClassList";
 import { getDataRequest } from "../../api/serviceMethods";
 import { CLASS_URL } from "../../api/URLs";
 
 const ClassesPage = () => {
+    const { t } = useTranslation()
     const [data, setData] = useState("")
     const [loading, setLoading] = useState(false)
     const [keyword, setkeyword] = useState('');
@@ -67,7 +69,7 @@ const ClassesPage = () => {
     return (
         <Row gutter={24}>
             <Col span={9}>
-                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>{id ? "Edit Class" : "Add Class"}</span>} style={{ height: 'auto' }}>
+                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>{id ? t("Edit Class") : t("Add Class")}</span>} style={{ height: 'auto' }}>
                     <AddClass 
                         getListClass={getListClasses}
                         id={id} setId={setId}
@@ -77,7 +79,7 @@ const ClassesPage = () => {
                 </Card>
             </Col>
             <Col span={15}>
-                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>Class List</span>} style={{ height: 'auto' }}>
+                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>{t("Class List")}</span>} style={{ height: 'auto' }}>
                     <ClassList
                         data={data} tableParams={tableParams}
                         setTableParams={setTableParams}

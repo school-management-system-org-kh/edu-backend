@@ -1,10 +1,12 @@
 import { Button, Card, Checkbox, Col, Divider, Form, Input, Radio, Row, Select } from "antd";
+import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { TimePicker } from "antd";
 import StaffAttendanceSetting from "../../StaffAttendanceSetting";
 import StudentAttendanceSetting from "../../StudentAttendanceSetting";
 
 const AttendanceTypeTab = () => {
+    const { t } = useTranslation();
     const [status, setStatus] = useState("disable")
     const [employee, setEmployee] = useState("staff")
     const [form] = Form.useForm();
@@ -38,7 +40,7 @@ const AttendanceTypeTab = () => {
 
     return (
         <div>
-            <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>Attendance Type</span>} style={{ height: 'auto' }}>
+            <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>{t("Attendance Type")}</span>} style={{ height: 'auto' }}>
                 <Form form={form}>
                     <Row gutter={24}>
                         <Col span={24}>
@@ -58,7 +60,7 @@ const AttendanceTypeTab = () => {
                                         lineHeight: "40px",
                                     }}
                                 >
-                                    Attendance
+                                    {t("Attendance")}
                                 </Col>
                                 <Col span={15}>
                                     <Form.Item
@@ -71,8 +73,8 @@ const AttendanceTypeTab = () => {
                                             defaultValue="disabled"
                                             onChange={(e) => setStatus(e.target.value)}
                                             options={[
-                                                { value: "disabled", label: 'Disabled' },
-                                                { value: "enabled", label: 'Enabled' },
+                                                { value: "disabled", label: t('Disabled') },
+                                                { value: "enabled", label: t('Enabled') },
                                             ]}
                                         />
                                     </Form.Item>
@@ -99,7 +101,7 @@ const AttendanceTypeTab = () => {
                                         lineHeight: "40px",
                                     }}
                                 >
-                                    QR Code / Barcode / Biometric Attendance
+                                    {t("QR Code / Barcode / Biometric Attendance")}
                                 </Col>
                                 <Col span={15}>
                                     <Form.Item
@@ -112,8 +114,8 @@ const AttendanceTypeTab = () => {
                                             defaultValue="disabled"
                                             onChange={(e) => setStatus(e.target.value)}
                                             options={[
-                                                { value: "disabled", label: 'Disabled' },
-                                                { value: "enabled", label: 'Enabled' },
+                                                { value: "disabled", label: t('Disabled') },
+                                                { value: "enabled", label: t('Enabled') },
                                             ]}
                                         />
                                     </Form.Item>
@@ -140,7 +142,7 @@ const AttendanceTypeTab = () => {
                                         lineHeight: "40px",
                                     }}
                                 >
-                                    Devices (Separate By Comma)
+                                    {t("Devices (Separate By Comma)")}
                                 </Col>
                                 <Col span={15}>
                                     <Form.Item
@@ -172,7 +174,7 @@ const AttendanceTypeTab = () => {
                                         lineHeight: "40px",
                                     }}
                                 >
-                                    Low Attendance Limit
+                                    {t("Low Attendance Limit")}
                                 </Col>
                                 <Col span={8}>
                                     <Form.Item
@@ -200,7 +202,7 @@ const AttendanceTypeTab = () => {
                 </Form>
             </Card>
 
-            <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>Class Attendance Time For Auto Attendance Submission (Day Wise With Cron Setting)</span>} style={{ height: 'auto', marginTop: "1rem" }}>
+            <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>{t("Class Attendance Time For Auto Attendance Submission (Day Wise With Cron Setting)")}</span>} style={{ height: 'auto', marginTop: "1rem" }}>
                 <Form form={form}>
                     <Row gutter={24}>
                         <Col span={24}>
@@ -216,7 +218,7 @@ const AttendanceTypeTab = () => {
                                         fontSize: "1rem",
                                         fontWeight: 500,
                                         lineHeight: "40px",
-                                    }}>Copy First Detail For All</Checkbox>
+                                    }}>{t("Copy First Detail For All")}</Checkbox>
                             </Row>
                         </Col>
                     </Row>
@@ -243,7 +245,7 @@ const AttendanceTypeTab = () => {
                                             lineHeight: "40px",
                                         }}
                                     >
-                                        {cls.name}
+                                        {t(cls.name)}
                                     </Col>
 
                                     {/* Right: Sections + TimePickers (col-15) */}
@@ -273,7 +275,7 @@ const AttendanceTypeTab = () => {
                                                             value={timeValues[key] || null}
                                                             onChange={(time) => handleTimeChange(cls.name, section, time)}
                                                             style={{ width: "50%" }}
-                                                            placeholder="Enter time"
+                                                            placeholder={t("Enter time")}
                                                             size="middle"
                                                         />
                                                     </div>
@@ -295,7 +297,7 @@ const AttendanceTypeTab = () => {
                             style={{ width: "20%", fontSize: "1rem", fontWeight: 600 }}
                             size="middle"
                         >
-                            Save
+                            {t("Save")}
                         </Button>
                     </div>
                 </Form>
@@ -304,16 +306,16 @@ const AttendanceTypeTab = () => {
             <Card title={
                 <div className="" style={{ display: 'flex', alignItems: "center", justifyContent: "space-between" }}>
                     <span style={{ fontWeight: 600, fontSize: "1.25rem" }}>
-                        {employee && capitalizeFirstLetter(employee)} Attendance Setting
+                        {employee && capitalizeFirstLetter(t(employee))} {t("Attendance Setting")}
                     </span>
                     <Select
-                        placeholder="Select Language"
+                        placeholder={t("Select Language")}
                         style={{ width: "20%" }}
                         size="middle"
                         value={employee}
                         options={[
-                            { value: "staff", label: "Staff" },
-                            { value: "student", label: "Student" },
+                            { value: "staff", label: t("Staff") },
+                            { value: "student", label: t("Student") },
                         ]}
                         onChange={(e) => setEmployee(e)}
                     />
@@ -335,7 +337,7 @@ const AttendanceTypeTab = () => {
                             style={{ width: "20%", fontSize: "1rem", fontWeight: 600 }}
                             size="middle"
                         >
-                            Save
+                            {t("Save")}
                         </Button>
                     </div>
                 </Form>

@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { Card, Col, Input, Row, Switch, Table } from "antd";
 import { TfiFiles } from "react-icons/tfi";
 import { AiOutlineFileExcel, AiOutlineFilePdf } from "react-icons/ai";
@@ -10,6 +11,7 @@ import autoTable from "jspdf-autotable";
 import MessageConfirmModal from "../../components/Modals/MessageConfirmModal";
 
 const CaptchaSettingPage = () => {
+    const { t } = useTranslation();
     const messageModalRef = useRef('');
     const exportToExcel = (data, fileName = "Online_Admission_Form_Fields.xlsx") => {
         const worksheet = XLSX.utils.json_to_sheet(data);
@@ -46,7 +48,7 @@ const CaptchaSettingPage = () => {
         const rows = data.map((row) => columns.map((col) => row[col.dataIndex]).join("\t"));
         const clipboardText = [header, ...rows].join("\n");
         navigator.clipboard.writeText(clipboardText);
-        messageModalRef.current.showSuccessConfirmsAutoClose("Table copied to clipboard!", () => { }, "", true);
+        messageModalRef.current.showSuccessConfirmsAutoClose(t("Table copied to clipboard!"), () => { }, "", true);
     };
     const printTable = (columns, data) => {
         // Extract headers (skip action column)
@@ -101,17 +103,17 @@ const CaptchaSettingPage = () => {
 
 
     const dataSource = [
-        { key: "1", name: "User login" },
-        { key: "2", name: "Login"},
-        { key: "3", name: "Admission" },
-        { key: "4", name: "Complain" },
-        { key: "5", name: "Contact Us"},
-        { key: "6", name: "Guest login and signup" },
+        { key: "1", name: t("User login") },
+        { key: "2", name: t("Login")},
+        { key: "3", name: t("Admission") },
+        { key: "4", name: t("Complain") },
+        { key: "5", name: t("Contact Us")},
+        { key: "6", name: t("Guest login and signup") },
     ];
 
     const columns = [
         {
-            title: "Name",
+            title: t("Name"),
             dataIndex: "name",
             key: "name",
             sorter: (a, b) => a.name.localeCompare(b.name), // Proper string sorting
@@ -119,7 +121,7 @@ const CaptchaSettingPage = () => {
             showSorterTooltip: false, // removes tooltip, keeps icon
         },
         {
-            title: "Action",
+            title: t("Action"),
             key: "action",
             align: "right", // align to end
             render: (_, record) => (
@@ -135,7 +137,7 @@ const CaptchaSettingPage = () => {
     return (
         <Row gutter={24}>
             <Col span={24}>
-                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>Captcha Setting</span>} style={{ height: 'auto' }}>
+                <Card title={<span style={{ fontWeight: 600, fontSize: "1.25rem" }}>{t("Captcha Setting")}</span>} style={{ height: 'auto' }}>
                     <div>
                         <Row
                             gutter={[16, 16]}
@@ -146,7 +148,7 @@ const CaptchaSettingPage = () => {
                             }}
                         >
                             <Col span={6} style={{ fontSize: "1rem", fontWeight: 500 }}>
-                                <Input placeholder="Search....." />
+                                <Input placeholder={t("Search.....")} />
                             </Col>
                             <Col
                                 span={18}

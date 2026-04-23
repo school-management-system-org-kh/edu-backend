@@ -1,9 +1,11 @@
 import { Table, Flex, Tag, } from "antd";
 import { FaDownload } from "react-icons/fa";
 import { FaTrashCan } from "react-icons/fa6";
-import { LuDatabaseBackup } from "react-icons/lu";
+import { useTranslation } from "react-i18next";
+import { LuDatabaseBackup as LuDatabaseBackupIcon } from "react-icons/lu";
 
 const BackupHistoryTable = () => {
+    const { t } = useTranslation();
     const data = [
         { key: "1", backup: "db_ver_7.0.1_2024-09-16_10-44-39.sql" },
         { key: "2", backup: "db_ver_7.0.1_2025-01-01_00-27-26.sql" },
@@ -46,23 +48,23 @@ const BackupHistoryTable = () => {
 
     const columns = [
         {
-            title: "Backup Files",
+            title: t("Backup Files"),
             width: "58%",
             render: (record) => <span style={{ color: "#0084B4", fontSize: "1rem" }}>{record.backup}</span>
         },
         {
-            title: "Action",
+            title: t("Action"),
             key: "action",
             render: (_, record) => (
                 <Flex gap="4px 0" wrap align="center">
                     <Tag onClick={() => downloadFile(filename, sqlBackupContent)} icon={<FaDownload />} color="#398439 " style={{ display: 'flex', alignItems: 'center', cursor: "pointer" }}>
-                        <span style={{ marginLeft: "0.3rem" }}>Download</span>
+                        <span style={{ marginLeft: "0.3rem" }}>{t("Download")}</span>
                     </Tag>
-                    <Tag icon={<LuDatabaseBackup />} color="#727272" style={{ display: 'flex', alignItems: 'center', cursor: "pointer" }}>
-                        <span style={{ marginLeft: "0.3rem" }}>Restore</span>
+                    <Tag icon={<LuDatabaseBackupIcon />} color="#727272" style={{ display: 'flex', alignItems: 'center', cursor: "pointer" }}>
+                        <span style={{ marginLeft: "0.3rem" }}>{t("Restore")}</span>
                     </Tag>
                     <Tag icon={<FaTrashCan />} color="#cd201f" style={{ display: 'flex', alignItems: 'center', cursor: "pointer" }}>
-                        <span style={{ marginLeft: "0.3rem" }}>Delete</span>
+                        <span style={{ marginLeft: "0.3rem" }}>{t("Delete")}</span>
                     </Tag>
                 </Flex>
             ),

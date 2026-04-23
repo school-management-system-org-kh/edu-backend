@@ -23,7 +23,7 @@ const AddClass = ({ getListClass, id, setId, setLoading }) => {
 
     const checkError = () => {
         if (!dataObject.name) {
-            return "Please fill in all required fields."
+            return t("Please fill in all required fields.")
         }
         return false
     }
@@ -106,7 +106,7 @@ const AddClass = ({ getListClass, id, setId, setLoading }) => {
                 });
         } catch (error) {
             setLoading(false);
-            messageModalRef.current.showWarningConfirmsAutoClose('Server Error!', () => { }, "", true);
+            messageModalRef.current.showWarningConfirmsAutoClose(t('Server Error!'), () => { }, "", true);
         }
     }
     useEffect(() => {
@@ -153,7 +153,7 @@ const AddClass = ({ getListClass, id, setId, setLoading }) => {
                 });
         } catch (error) {
             setLoading(false);
-            messageModalRef.current.showWarningConfirmsAutoClose('Server Error!', () => { }, "", true);
+            messageModalRef.current.showWarningConfirmsAutoClose(t('Server Error!'), () => { }, "", true);
         }
     }
 
@@ -183,9 +183,9 @@ const AddClass = ({ getListClass, id, setId, setLoading }) => {
         >
 
             <Form.Item
-                label={<span style={{ fontSize: "1rem", fontWeight: 500 }}>Class<span style={{ color: "red" }}> *</span></span>}
+                label={<span style={{ fontSize: "1rem", fontWeight: 500 }}>{t("Class")}<span style={{ color: "red" }}> *</span></span>}
                 name="name"
-                rules={[{ validator: (_, value) => value ? Promise.resolve() : Promise.reject("Please enter a class") }]}
+                rules={[{ validator: (_, value) => value ? Promise.resolve() : Promise.reject(t("Please enter a class")) }]}
                 style={{ marginBottom: 12 }} // 👈 reduce bottom spacing
             >
                 <InputComponent
@@ -200,9 +200,9 @@ const AddClass = ({ getListClass, id, setId, setLoading }) => {
             </Form.Item>
 
             <Form.Item
-                label={<span style={{ fontSize: "1rem", fontWeight: 500 }}>Section<span style={{ color: "red" }}> *</span></span>}
+                label={<span style={{ fontSize: "1rem", fontWeight: 500 }}>{t("Section")}<span style={{ color: "red" }}> *</span></span>}
                 name="sectionIds"
-                rules={[{ validator: (_, value) => value ? Promise.resolve() : Promise.reject("Please enter a section") }]}
+                rules={[{ validator: (_, value) => value ? Promise.resolve() : Promise.reject(t("Please select a section")) }]}
                 style={{ marginBottom: 12 }} // 👈 reduce bottom spacing
             >
                 <SelectMultipleComponent
@@ -224,7 +224,7 @@ const AddClass = ({ getListClass, id, setId, setLoading }) => {
             {/* Centered Save button */}
             <div style={{ textAlign: "center", marginTop: "24px" }}>
                 <Button type="primary" onClick={id ? handleUpdate : handleSubmit} style={{ width: "30%", fontSize: "1rem", fontWeight: 600 }} size="middle">
-                    {id ? "Update" : "Save"}
+                    {id ? t("Update") : t("Save")}
                 </Button>
             </div>
             <MessageConfirmModal textCentered ref={messageModalRef} />
