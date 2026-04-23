@@ -135,7 +135,7 @@ const RoleList = ({ loading, data, tableParams, setTableParams, setkeyword, setI
               size={16}
               style={{ marginLeft: '0.8rem', cursor: "pointer" }}
               onClick={() => {
-                setId(record && record?.id)
+                setId(record && record?._id)
               }}
             />
           </div>

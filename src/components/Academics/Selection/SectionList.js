@@ -102,7 +102,7 @@ const SectionList = ({ loading, data, tableParams, setTableParams, getListSectio
     const handleDelete = async (item) => {
         messageModalRef.current.showWarningConfirm(t('Are you sure you want to delete this section ?'), async () => {
             setLoading(true)
-            await deleteDataRequest(`${SECTION_URL}/${item?.id}`).then((res) => {
+            await deleteDataRequest(`${SECTION_URL}/${item?._id}`).then((res) => {
                 messageModalRef.current.showSuccessConfirmsAutoClose(res && res.message, () => { }, "", true);
                 getListSection();
                 setLoading(false)
@@ -142,7 +142,7 @@ const SectionList = ({ loading, data, tableParams, setTableParams, getListSectio
                         <FaRegEdit
                             style={{ fontSize: "1.2rem", color: "#1677ff", cursor: "pointer", marginTop: "0.4rem", marginLeft: "0.5rem" }}
                             onClick={() => {
-                                setId(record && record?.id)
+                                setId(record && record?._id)
                             }}
                         />
                         <DeleteOutlined

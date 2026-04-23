@@ -103,7 +103,7 @@ const SessionList = ({ loading, data, tableParams, setTableParams, getListSessio
     const handleDelete = async (item) => {
         messageModalRef.current.showWarningConfirm(t('Are you sure you want to delete this session ?'), async () => {
             setLoading(true)
-            await deleteDataRequest(`${SESSION_URL}/${item?.id}`).then((res) => {
+            await deleteDataRequest(`${SESSION_URL}/${item?._id}`).then((res) => {
                 messageModalRef.current.showSuccessConfirmsAutoClose(res && res.message, () => { }, "", true);
                 getListSession();
                 setLoading(false)
@@ -147,7 +147,7 @@ const SessionList = ({ loading, data, tableParams, setTableParams, getListSessio
                         <FaRegEdit
                             style={{ fontSize: "1.2rem", color: "#1677ff", cursor: "pointer", marginTop: "0.4rem", marginLeft: "0.5rem" }}
                             onClick={() => {
-                                setId(record && record?.id)
+                                setId(record && record?._id)
                             }}
                         />
                         <DeleteOutlined

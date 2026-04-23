@@ -146,7 +146,7 @@ const SMSTemplete = ({ t, show, setShow, getSMSTemplete, id, setId, setLoading, 
     const handleDelete = async (item) => {
         messageModalRef.current.showWarningConfirm(t('Are you sure you want to delete this sms templete ?'), async () => {
             setLoading(true)
-            await deleteDataRequest(`${SMSTEMPLETE_URL}/${item?.id}`).then((res) => {
+            await deleteDataRequest(`${SMSTEMPLETE_URL}/${item?._id}`).then((res) => {
                 messageModalRef.current.showSuccessConfirmsAutoClose(res && res.message, () => { }, "", true);
                 getSMSTemplete();
                 setLoading(false)
@@ -209,7 +209,7 @@ const SMSTemplete = ({ t, show, setShow, getSMSTemplete, id, setId, setLoading, 
                         <FaRegEdit
                             style={{ fontSize: "1.2rem", color: "#1677ff", cursor: "pointer", marginTop: "0.4rem", marginLeft: "0.5rem" }}
                             onClick={() => {
-                                setId(record && record?.id)
+                                setId(record && record?._id)
                                 setShow(true)
                             }}
                         />
